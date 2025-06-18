@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
@@ -39,7 +38,7 @@ const Hero = () => {
       y: 0,
       transition: {
         duration: 1,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: "easeOut"
       }
     }
   };
@@ -52,7 +51,7 @@ const Hero = () => {
       transition: {
         duration: 0.8,
         delay: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: "easeOut"
       }
     }
   };
