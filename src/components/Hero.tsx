@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
@@ -60,7 +59,7 @@ const Hero = () => {
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Particle Background */}
       <div className="absolute inset-0 w-full h-full">
-        <Canvas camera={{ position: [0, 0, 1] }} gl={{ preserveDrawingBuffer: true }}>
+        <Canvas camera={{ position: [0, 0, 1] }}>
           <Particles />
         </Canvas>
       </div>

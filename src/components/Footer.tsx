@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
@@ -45,7 +44,7 @@ const Footer = () => {
     <footer className="relative py-16 px-8 bg-black overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30">
-        <Canvas camera={{ position: [0, 0, 1] }} gl={{ preserveDrawingBuffer: true }}>
+        <Canvas camera={{ position: [0, 0, 1] }}>
           <FloatingParticles />
         </Canvas>
       </div>
