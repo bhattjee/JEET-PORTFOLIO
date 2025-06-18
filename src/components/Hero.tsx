@@ -1,11 +1,13 @@
+
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import * as random from 'maath/random/dist/maath-random.esm';
+import * as THREE from 'three';
 
 const Particles = () => {
-  const ref = useRef<any>();
+  const ref = useRef<THREE.Points>(null);
   const sphere = random.inSphere(new Float32Array(2000), { radius: 1.5 });
 
   useFrame((state, delta) => {
@@ -58,7 +60,7 @@ const Hero = () => {
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Particle Background */}
       <div className="absolute inset-0 w-full h-full">
-        <Canvas camera={{ position: [0, 0, 1] }}>
+        <Canvas camera={{ position: [0, 0, 1] }} gl={{ preserveDrawingBuffer: true }}>
           <Particles />
         </Canvas>
       </div>

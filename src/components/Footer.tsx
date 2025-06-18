@@ -1,11 +1,13 @@
+
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as random from 'maath/random/dist/maath-random.esm';
+import * as THREE from 'three';
 
 const FloatingParticles = () => {
-  const ref = useRef<any>();
+  const ref = useRef<THREE.Points>(null);
   const sphere = random.inSphere(new Float32Array(500), { radius: 2 });
 
   useFrame((state, delta) => {
@@ -43,7 +45,7 @@ const Footer = () => {
     <footer className="relative py-16 px-8 bg-black overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30">
-        <Canvas camera={{ position: [0, 0, 1] }}>
+        <Canvas camera={{ position: [0, 0, 1] }} gl={{ preserveDrawingBuffer: true }}>
           <FloatingParticles />
         </Canvas>
       </div>
@@ -99,8 +101,8 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="group relative w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center border border-gray-700 hover:border-[#00BFFF] transition-all duration-300"
-              whileHover={{ 
-                scale: 1.2, 
+              whileHover={{
+                scale: 1.2,
                 y: -5,
                 rotate: 10
               }}
