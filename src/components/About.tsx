@@ -1,8 +1,6 @@
-
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
-import { Sphere } from '@react-three/drei';
 import * as THREE from 'three';
 
 const AnimatedSphere = () => {
@@ -16,13 +14,14 @@ const AnimatedSphere = () => {
   });
 
   return (
-    <Sphere ref={meshRef} args={[1, 100, 200]} scale={2}>
+    <mesh ref={meshRef} scale={2}>
+      <sphereGeometry args={[1, 100, 200]} />
       <meshPhongMaterial
         color="#00BFFF"
         transparent
         opacity={0.8}
       />
-    </Sphere>
+    </mesh>
   );
 };
 
