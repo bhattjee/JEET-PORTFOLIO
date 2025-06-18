@@ -20,7 +20,6 @@ const AnimatedSphere = () => {
         color="#00BFFF"
         transparent={true}
         opacity={0.8}
-        shininess={100}
       />
     </Sphere>
   );
