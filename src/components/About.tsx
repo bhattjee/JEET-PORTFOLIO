@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
@@ -19,7 +18,7 @@ const AnimatedSphere = () => {
     <Sphere ref={meshRef} args={[1, 100, 200]} scale={2}>
       <meshPhongMaterial
         color="#00BFFF"
-        transparent
+        transparent={true}
         opacity={0.8}
         shininess={100}
       />
