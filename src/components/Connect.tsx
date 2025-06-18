@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
@@ -121,7 +122,7 @@ const Connect = () => {
       rotateX: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0.6, -0.05, 0.01, 0.99]
       }
     }
   };
@@ -194,7 +195,7 @@ const Connect = () => {
                   opacity: hoveredCard === contact.type ? 1 : 0,
                   y: hoveredCard === contact.type ? 0 : 10
                 }}
-                className="mt-4 px-4 py-2 bg-[#00BFFF] text-black text-sm font-semib	 rounded-lg hover:bg-white transition-all duration-300"
+                className="mt-4 px-4 py-2 bg-[#00BFFF] text-black text-sm font-semibold rounded-lg hover:bg-white transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
