@@ -120,8 +120,7 @@ const Connect = () => {
       y: 0,
       rotateX: 0,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        duration: 0.6
       }
     }
   };
