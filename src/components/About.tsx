@@ -1,10 +1,12 @@
+
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
-import { Sphere, MeshDistortMaterial } from '@react-three/drei';
+import { Sphere } from '@react-three/drei';
+import * as THREE from 'three';
 
 const AnimatedSphere = () => {
-  const meshRef = useRef<any>();
+  const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -15,13 +17,11 @@ const AnimatedSphere = () => {
 
   return (
     <Sphere ref={meshRef} args={[1, 100, 200]} scale={2}>
-      <MeshDistortMaterial
+      <meshPhongMaterial
         color="#00BFFF"
-        distort={0.3}
-        speed={2}
-        roughness={0}
         transparent
         opacity={0.8}
+        shininess={100}
       />
     </Sphere>
   );
