@@ -335,7 +335,13 @@ const Proficiencies = () => {
                     <p className="text-sm text-gray-300 leading-relaxed">
                       {cert.description}
                     </p>
-                    <button className="text-[#00BFFF] text-sm hover:underline">
+                    <button 
+                      className="text-[#00BFFF] text-sm hover:underline"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setExpandedCert(cert.id);
+                      }}
+                    >
                       View Full Details →
                     </button>
                   </div>
