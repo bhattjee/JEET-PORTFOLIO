@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
@@ -392,23 +391,12 @@ const Proficiencies = () => {
                       <img 
                         src={cert.image} 
                         alt={cert.title}
-                        className="w-full h-48 object-cover rounded-lg border border-gray-700 cursor-pointer transition-all duration-300"
-                        onClick={() => setFullImageView(cert.image)}
+                        className="w-full h-48 object-cover rounded-lg border border-gray-700 cursor-pointer hover:border-[#00BFFF] transition-all duration-300"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setFullImageView(cert.image);
+                        }}
                       />
-                      <div className="absolute top-2 right-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="bg-black/50 border-white/20 text-white hover:bg-black/70"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            downloadImage(cert.image, cert.title);
-                          }}
-                        >
-                          <Download className="w-4 h-4 mr-2" />
-                          Download
-                        </Button>
-                      </div>
                       <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
                         <span className="text-white text-sm font-medium">Click to view full size</span>
                       </div>
@@ -462,20 +450,20 @@ const Proficiencies = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-60 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[60] flex items-center justify-center p-4"
             onClick={() => setFullImageView(null)}
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center"
+              className="relative max-w-5xl max-h-[90vh] w-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <img 
                 src={fullImageView} 
-                alt="Certificate"
-                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                alt="Certificate Full View"
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl border border-gray-600"
               />
               
               {/* Controls */}
@@ -483,8 +471,9 @@ const Proficiencies = () => {
                 <Button
                   size="sm"
                   variant="outline"
-                  className="bg-black/50 border-white/20 text-white hover:bg-black/70"
-                  onClick={() => {
+                  className="bg-black/70 border-white/30 text-white hover:bg-black/90"
+                  onClick={(e) => {
+                    e.stopPropagation();
                     const cert = certifications.find(c => c.image === fullImageView);
                     if (cert) downloadImage(fullImageView, cert.title);
                   }}
@@ -495,7 +484,7 @@ const Proficiencies = () => {
                 <Button
                   size="sm"
                   variant="outline"
-                  className="bg-black/50 border-white/20 text-white hover:bg-black/70"
+                  className="bg-black/70 border-white/30 text-white hover:bg-black/90"
                   onClick={() => setFullImageView(null)}
                 >
                   <X className="w-4 h-4" />
@@ -503,8 +492,8 @@ const Proficiencies = () => {
               </div>
               
               {/* Close hint */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white/70 text-sm">
-                Click outside to close
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white/70 text-sm bg-black/50 px-4 py-2 rounded-lg">
+                Click outside image or X button to close
               </div>
             </motion.div>
           </motion.div>
