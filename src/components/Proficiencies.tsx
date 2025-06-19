@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
@@ -391,25 +392,25 @@ const Proficiencies = () => {
                       <img 
                         src={cert.image} 
                         alt={cert.title}
-                        className="w-full h-48 object-cover rounded-lg border border-gray-700 blur-sm cursor-pointer transition-all duration-300 group-hover:blur-none"
+                        className="w-full h-48 object-cover rounded-lg border border-gray-700 cursor-pointer transition-all duration-300"
                         onClick={() => setFullImageView(cert.image)}
                       />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                        <div className="text-center text-white">
-                          <span className="block text-sm mb-2">Click to view full image</span>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="bg-white/10 border-white/20 text-white hover:bg-white/20"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              downloadImage(cert.image, cert.title);
-                            }}
-                          >
-                            <Download className="w-4 h-4 mr-2" />
-                            Download
-                          </Button>
-                        </div>
+                      <div className="absolute top-2 right-2">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="bg-black/50 border-white/20 text-white hover:bg-black/70"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            downloadImage(cert.image, cert.title);
+                          }}
+                        >
+                          <Download className="w-4 h-4 mr-2" />
+                          Download
+                        </Button>
+                      </div>
+                      <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                        <span className="text-white text-sm font-medium">Click to view full size</span>
                       </div>
                     </div>
                     
