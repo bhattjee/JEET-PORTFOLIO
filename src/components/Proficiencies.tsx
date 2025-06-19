@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
@@ -78,7 +79,8 @@ const Proficiencies = () => {
       skills: ['EC2', 'S3', 'Lambda', 'RDS', 'CloudFormation'],
       credentialId: 'AWS-ASA-2023-001',
       fullDescription: 'This certification validates expertise in designing distributed applications and systems on the AWS platform. Demonstrates ability to identify appropriate AWS services to design and deploy an application based on given requirements, migrate complex, multi-tier applications on AWS, and implement cost-control strategies.',
-      verificationUrl: 'https://aws.amazon.com/verification'
+      verificationUrl: 'https://aws.amazon.com/verification',
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop'
     },
     {
       id: 'google-cloud-ml',
@@ -90,7 +92,8 @@ const Proficiencies = () => {
       skills: ['TensorFlow', 'Vertex AI', 'BigQuery ML', 'AutoML'],
       credentialId: 'GCP-MLE-2023-002',
       fullDescription: 'Professional Machine Learning Engineer certification demonstrates the ability to design, build, and productionize ML models to solve business challenges using Google Cloud technologies and knowledge of proven ML models and techniques.',
-      verificationUrl: 'https://cloud.google.com/certification'
+      verificationUrl: 'https://cloud.google.com/certification',
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop'
     },
     {
       id: 'react-advanced',
@@ -102,7 +105,8 @@ const Proficiencies = () => {
       skills: ['React Hooks', 'Context API', 'Performance', 'Testing'],
       credentialId: 'META-ARD-2024-003',
       fullDescription: 'This advanced certification covers sophisticated React concepts including advanced hooks, performance optimization techniques, testing strategies, and architectural patterns for large-scale applications.',
-      verificationUrl: 'https://developers.facebook.com/certification'
+      verificationUrl: 'https://developers.facebook.com/certification',
+      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop'
     }
   ];
 
@@ -261,6 +265,13 @@ const Proficiencies = () => {
                         </div>
                       </CardHeader>
                       <CardContent>
+                        <div className="mb-4">
+                          <img 
+                            src={cert.image} 
+                            alt={cert.title}
+                            className="w-full h-32 object-cover rounded-lg border border-gray-700 group-hover:border-[#00BFFF]/50 transition-colors duration-300"
+                          />
+                        </div>
                         <p className="text-gray-300 text-sm mb-4 group-hover:text-white transition-colors duration-300">
                           {cert.description}
                         </p>
@@ -283,6 +294,13 @@ const Proficiencies = () => {
                     <div className="flex items-center gap-2">
                       <Badge className="text-[#00BFFF]" size={20} />
                       <h4 className="font-semibold text-white">{cert.title}</h4>
+                    </div>
+                    <div className="mb-3">
+                      <img 
+                        src={cert.image} 
+                        alt={cert.title}
+                        className="w-full h-24 object-cover rounded-lg border border-gray-700"
+                      />
                     </div>
                     <div className="space-y-2 text-sm text-gray-300">
                       <p><strong>Issuer:</strong> {cert.issuer}</p>
@@ -343,6 +361,14 @@ const Proficiencies = () => {
                       >
                         ×
                       </button>
+                    </div>
+                    
+                    <div className="mb-6">
+                      <img 
+                        src={cert.image} 
+                        alt={cert.title}
+                        className="w-full h-48 object-cover rounded-lg border border-gray-700"
+                      />
                     </div>
                     
                     <div className="space-y-4">
