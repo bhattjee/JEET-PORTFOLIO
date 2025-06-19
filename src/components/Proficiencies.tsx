@@ -1,13 +1,14 @@
-
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card';
-import { Badge } from 'lucide-react';
+import { Badge, Download, X } from 'lucide-react';
+import { Button } from './ui/button';
 
 const Proficiencies = () => {
   const [activeCategory, setActiveCategory] = useState('frontend');
   const [expandedCert, setExpandedCert] = useState<string | null>(null);
+  const [fullImageView, setFullImageView] = useState<string | null>(null);
 
   const categories = {
     frontend: {
@@ -129,6 +130,23 @@ const Proficiencies = () => {
       transition: {
         duration: 0.6
       }
+    }
+  };
+
+  const downloadImage = async (imageUrl: string, filename: string) => {
+    try {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${filename}-certificate.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Failed to download image:', error);
     }
   };
 
@@ -265,12 +283,15 @@ const Proficiencies = () => {
                         </div>
                       </CardHeader>
                       <CardContent>
-                        <div className="mb-4">
+                        <div className="mb-4 relative overflow-hidden rounded-lg">
                           <img 
                             src={cert.image} 
                             alt={cert.title}
-                            className="w-full h-32 object-cover rounded-lg border border-gray-700 group-hover:border-[#00BFFF]/50 transition-colors duration-300"
+                            className="w-full h-32 object-cover border border-gray-700 group-hover:border-[#00BFFF]/50 group-hover:blur-sm transition-all duration-300"
                           />
+                          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span className="text-white text-sm font-medium">Click to view details</span>
+                          </div>
                         </div>
                         <p className="text-gray-300 text-sm mb-4 group-hover:text-white transition-colors duration-300">
                           {cert.description}
@@ -295,12 +316,15 @@ const Proficiencies = () => {
                       <Badge className="text-[#00BFFF]" size={20} />
                       <h4 className="font-semibold text-white">{cert.title}</h4>
                     </div>
-                    <div className="mb-3">
+                    <div className="mb-3 relative overflow-hidden rounded-lg">
                       <img 
                         src={cert.image} 
                         alt={cert.title}
-                        className="w-full h-24 object-cover rounded-lg border border-gray-700"
+                        className="w-full h-24 object-cover border border-gray-700 blur-sm"
                       />
+                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                        <span className="text-white text-xs">Click "View Full Details" to see image</span>
+                      </div>
                     </div>
                     <div className="space-y-2 text-sm text-gray-300">
                       <p><strong>Issuer:</strong> {cert.issuer}</p>
@@ -363,12 +387,30 @@ const Proficiencies = () => {
                       </button>
                     </div>
                     
-                    <div className="mb-6">
+                    <div className="mb-6 relative group">
                       <img 
                         src={cert.image} 
                         alt={cert.title}
-                        className="w-full h-48 object-cover rounded-lg border border-gray-700"
+                        className="w-full h-48 object-cover rounded-lg border border-gray-700 blur-sm cursor-pointer transition-all duration-300 group-hover:blur-none"
+                        onClick={() => setFullImageView(cert.image)}
                       />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                        <div className="text-center text-white">
+                          <span className="block text-sm mb-2">Click to view full image</span>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              downloadImage(cert.image, cert.title);
+                            }}
+                          >
+                            <Download className="w-4 h-4 mr-2" />
+                            Download
+                          </Button>
+                        </div>
+                      </div>
                     </div>
                     
                     <div className="space-y-4">
@@ -409,6 +451,60 @@ const Proficiencies = () => {
                   </div>
                 );
               })()}
+            </motion.div>
+          </motion.div>
+        )}
+
+        {/* Full Image View Modal */}
+        {fullImageView && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-60 flex items-center justify-center p-4"
+            onClick={() => setFullImageView(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img 
+                src={fullImageView} 
+                alt="Certificate"
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              />
+              
+              {/* Controls */}
+              <div className="absolute top-4 right-4 flex gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="bg-black/50 border-white/20 text-white hover:bg-black/70"
+                  onClick={() => {
+                    const cert = certifications.find(c => c.image === fullImageView);
+                    if (cert) downloadImage(fullImageView, cert.title);
+                  }}
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Download
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="bg-black/50 border-white/20 text-white hover:bg-black/70"
+                  onClick={() => setFullImageView(null)}
+                >
+                  <X className="w-4 h-4" />
+                </Button>
+              </div>
+              
+              {/* Close hint */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white/70 text-sm">
+                Click outside to close
+              </div>
             </motion.div>
           </motion.div>
         )}
