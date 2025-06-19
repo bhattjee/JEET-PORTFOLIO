@@ -1,10 +1,9 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import CategoryTabs from './proficiencies/CategoryTabs';
-import SkillsGrid from './proficiencies/SkillsGrid';
-import CertificationCard from './proficiencies/CertificationCard';
-import CertificationModal from './proficiencies/CertificationModal';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card';
+import { Badge } from 'lucide-react';
 
 const Proficiencies = () => {
   const [activeCategory, setActiveCategory] = useState('frontend');
@@ -111,11 +110,27 @@ const Proficiencies = () => {
     }
   ];
 
-  const handleExpandCert = (certId: string) => {
-    setExpandedCert(expandedCert === certId ? null : certId);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
   };
 
-  const expandedCertData = expandedCert ? certifications.find(c => c.id === expandedCert) : null;
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50, rotateX: -15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      transition: {
+        duration: 0.6
+      }
+    }
+  };
 
   return (
     <section id="proficiencies" className="py-20 px-8 bg-gradient-to-b from-black to-gray-900">
@@ -135,17 +150,78 @@ const Proficiencies = () => {
           </p>
         </motion.div>
 
-        <CategoryTabs 
-          categories={categories}
-          activeCategory={activeCategory}
-          onCategoryChange={setActiveCategory}
-        />
+        {/* Category Tabs */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {Object.entries(categories).map(([key, category]) => (
+            <motion.button
+              key={key}
+              onClick={() => setActiveCategory(key)}
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                activeCategory === key
+                  ? 'bg-[#00BFFF] text-black glow-blue-intense'
+                  : 'bg-gray-800 text-white hover:bg-gray-700'
+              }`}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {category.title}
+            </motion.button>
+          ))}
+        </div>
 
-        <SkillsGrid 
-          skills={categories[activeCategory as keyof typeof categories].skills}
-          activeCategory={activeCategory}
-        />
+        {/* Skills Grid */}
+        <motion.div
+          key={activeCategory}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+        >
+          {categories[activeCategory as keyof typeof categories].skills.map((skill, index) => (
+            <motion.div
+              key={skill.name}
+              variants={itemVariants}
+              className="group relative p-6 bg-gray-900/50 rounded-xl border border-gray-700 hover:border-[#00BFFF] transition-all duration-300 card-3d backdrop-blur-sm"
+              whileHover={{ 
+                y: -10, 
+                rotateX: 5, 
+                rotateY: 5,
+                boxShadow: "0 25px 50px rgba(0, 191, 255, 0.2)"
+              }}
+            >
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-lg font-bold text-white group-hover:text-[#00BFFF] transition-colors duration-300">
+                    {skill.name}
+                  </h3>
+                  <span className="text-sm text-gray-400 group-hover:text-[#00BFFF] transition-colors duration-300">
+                    {skill.level}%
+                  </span>
+                </div>
+                
+                <p className="text-sm text-gray-400 mb-4 group-hover:text-gray-300 transition-colors duration-300">
+                  {skill.description}
+                </p>
+                
+                {/* Progress Bar */}
+                <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                  <motion.div
+                    className="h-full bg-gradient-to-r from-[#00BFFF] to-white rounded-full"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    transition={{ duration: 1, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  />
+                </div>
+              </div>
+              
+              {/* Glow effect on hover */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#00BFFF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </motion.div>
+          ))}
+        </motion.div>
 
+        {/* Certifications Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -162,20 +238,180 @@ const Proficiencies = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {certifications.map((cert, index) => (
-              <CertificationCard
-                key={cert.id}
-                cert={cert}
-                index={index}
-                onExpand={handleExpandCert}
-              />
+              <HoverCard key={cert.id}>
+                <HoverCardTrigger asChild>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                    className="group cursor-pointer"
+                    onClick={() => setExpandedCert(expandedCert === cert.id ? null : cert.id)}
+                  >
+                    <Card className="bg-gray-900/50 border-gray-700 hover:border-[#00BFFF] transition-all duration-300 card-3d group-hover:shadow-lg group-hover:shadow-[#00BFFF]/20">
+                      <CardHeader className="pb-4">
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <CardTitle className="text-white group-hover:text-[#00BFFF] transition-colors duration-300 text-lg">
+                              {cert.title}
+                            </CardTitle>
+                            <CardDescription className="text-gray-400 text-sm mt-1">
+                              {cert.issuer} • {cert.date}
+                            </CardDescription>
+                          </div>
+                          <span className="text-xs px-2 py-1 bg-[#00BFFF]/20 text-[#00BFFF] rounded-full">
+                            {cert.level}
+                          </span>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="mb-4">
+                          <img 
+                            src={cert.image} 
+                            alt={cert.title}
+                            className="w-full h-32 object-cover rounded-lg border border-gray-700 group-hover:border-[#00BFFF]/50 transition-colors duration-300"
+                          />
+                        </div>
+                        <p className="text-gray-300 text-sm mb-4 group-hover:text-white transition-colors duration-300">
+                          {cert.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {cert.skills.map((skill, skillIndex) => (
+                            <span
+                              key={skillIndex}
+                              className="text-xs px-2 py-1 bg-gray-800 text-gray-300 rounded-md group-hover:bg-[#00BFFF]/10 group-hover:text-[#00BFFF] transition-all duration-300"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80 bg-gray-900 border-gray-700 p-6">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-2">
+                      <Badge className="text-[#00BFFF]" size={20} />
+                      <h4 className="font-semibold text-white">{cert.title}</h4>
+                    </div>
+                    <div className="mb-3">
+                      <img 
+                        src={cert.image} 
+                        alt={cert.title}
+                        className="w-full h-24 object-cover rounded-lg border border-gray-700"
+                      />
+                    </div>
+                    <div className="space-y-2 text-sm text-gray-300">
+                      <p><strong>Issuer:</strong> {cert.issuer}</p>
+                      <p><strong>Date:</strong> {cert.date}</p>
+                      <p><strong>Level:</strong> {cert.level}</p>
+                      <p><strong>Credential ID:</strong> {cert.credentialId}</p>
+                    </div>
+                    <p className="text-sm text-gray-300 leading-relaxed">
+                      {cert.description}
+                    </p>
+                    <button className="text-[#00BFFF] text-sm hover:underline">
+                      View Full Details →
+                    </button>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
             ))}
           </div>
         </motion.div>
 
-        <CertificationModal 
-          cert={expandedCertData}
-          onClose={() => setExpandedCert(null)}
-        />
+        {/* Expanded Certification Modal */}
+        {expandedCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setExpandedCert(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="bg-gray-900 border border-gray-700 rounded-xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {(() => {
+                const cert = certifications.find(c => c.id === expandedCert);
+                if (!cert) return null;
+                
+                return (
+                  <div className="space-y-6">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h2 className="text-2xl font-bold text-white mb-2">{cert.title}</h2>
+                        <div className="flex items-center gap-4 text-gray-400">
+                          <span>{cert.issuer}</span>
+                          <span>•</span>
+                          <span>{cert.date}</span>
+                          <span className="px-2 py-1 bg-[#00BFFF]/20 text-[#00BFFF] rounded-full text-xs">
+                            {cert.level}
+                          </span>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => setExpandedCert(null)}
+                        className="text-gray-400 hover:text-white text-2xl"
+                      >
+                        ×
+                      </button>
+                    </div>
+                    
+                    <div className="mb-6">
+                      <img 
+                        src={cert.image} 
+                        alt={cert.title}
+                        className="w-full h-48 object-cover rounded-lg border border-gray-700"
+                      />
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="text-lg font-semibold text-[#00BFFF] mb-2">Description</h3>
+                        <p className="text-gray-300 leading-relaxed">{cert.fullDescription}</p>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-lg font-semibold text-[#00BFFF] mb-2">Key Skills</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {cert.skills.map((skill, skillIndex) => (
+                            <span
+                              key={skillIndex}
+                              className="px-3 py-1 bg-gray-800 text-gray-300 rounded-md"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-lg font-semibold text-[#00BFFF] mb-2">Verification</h3>
+                        <div className="space-y-2 text-gray-300">
+                          <p><strong>Credential ID:</strong> {cert.credentialId}</p>
+                          <a
+                            href={cert.verificationUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block text-[#00BFFF] hover:underline"
+                          >
+                            Verify Certification →
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
+            </motion.div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
