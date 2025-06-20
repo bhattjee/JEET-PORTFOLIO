@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
@@ -112,14 +113,14 @@ const About = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Full Container Image with 3D Background */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-16">
+          {/* Full Container Image with 3D Background - Now covers entire vertical space */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative h-[600px] rounded-2xl overflow-hidden"
+            className="relative min-h-[800px] rounded-2xl overflow-hidden"
           >
             {/* 3D Animation Background Layer */}
             <div className="absolute inset-0">
@@ -139,24 +140,24 @@ const About = () => {
               </Canvas>
             </div>
 
-            {/* Full Cover Image */}
+            {/* Full Cover Image - Now covers entire container */}
             <div className="absolute inset-0 z-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="relative h-full group"
+                className="relative h-full w-full group"
                 whileHover={{ scale: 1.02 }}
               >
                 <img
                   src={mainProfileImage.url}
                   alt={mainProfileImage.alt}
-                  className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center rounded-2xl group-hover:scale-105 transition-transform duration-500"
                 />
                 
                 {/* Gradient Overlay for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent rounded-2xl"></div>
                 
                 {/* Glowing border effect */}
                 <div className="absolute inset-0 rounded-2xl border-2 border-[#00BFFF]/30 group-hover:border-[#00BFFF]/60 transition-all duration-300"></div>
@@ -173,13 +174,13 @@ const About = () => {
             <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-[#00BFFF] via-transparent to-[#00BFFF] opacity-20 animate-pulse"></div>
           </motion.div>
 
-          {/* Content */}
+          {/* Content - Now matches the height */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-6 flex flex-col justify-center min-h-[800px]"
           >
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <motion.p
