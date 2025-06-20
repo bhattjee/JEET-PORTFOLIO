@@ -1,73 +1,8 @@
+
 import { motion } from 'framer-motion';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
-import * as THREE from 'three';
-
-const AnimatedSphere = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.3;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.2;
-      meshRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-      
-      // Add floating animation
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.5;
-      
-      // Pulsing scale effect
-      const scale = 3 + Math.sin(state.clock.elapsedTime * 1.2) * 0.2;
-      meshRef.current.scale.setScalar(scale);
-    }
-  });
-
-  return (
-    <mesh ref={meshRef}>
-      <sphereGeometry args={[1, 64, 64]} />
-      <meshPhongMaterial
-        color="#00BFFF"
-        transparent
-        opacity={0.7}
-        wireframe={false}
-        shininess={100}
-      />
-    </mesh>
-  );
-};
-
-const ParticleField = () => {
-  const pointsRef = useRef<THREE.Points>(null);
-  
-  useFrame((state) => {
-    if (pointsRef.current) {
-      pointsRef.current.rotation.x = state.clock.elapsedTime * 0.05;
-      pointsRef.current.rotation.y = state.clock.elapsedTime * 0.1;
-    }
-  });
-
-  const particleCount = 200;
-  const positions = new Float32Array(particleCount * 3);
-  
-  for (let i = 0; i < particleCount; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 10;
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
-  }
-
-  return (
-    <points ref={pointsRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
-        />
-      </bufferGeometry>
-      <pointsMaterial color="#00BFFF" size={0.02} transparent opacity={0.6} />
-    </points>
-  );
-};
+import ProfileImage from './about/ProfileImage';
+import SkillsVisualization from './about/SkillsVisualization';
+import InterestsGrid from './about/InterestsGrid';
 
 const About = () => {
   const skills = [
@@ -87,7 +22,6 @@ const About = () => {
     { icon: '🎨', name: 'UI/UX Design', description: 'Crafting beautiful interfaces' }
   ];
 
-  // Main profile image - Replace with your own image
   const mainProfileImage = {
     url: "/lovable-uploads/8092c197-b951-410c-b576-ad2590b558c1.png",
     alt: "Your professional photo",
@@ -113,63 +47,7 @@ const About = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch mb-16">
-          {/* Full Container Image with 3D Background - Covers complete vertical space */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative h-screen max-h-[900px] min-h-[700px] overflow-hidden"
-          >
-            {/* 3D Animation Background Layer */}
-            <div className="absolute inset-0">
-              <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
-                <ambientLight intensity={0.2} />
-                <pointLight position={[10, 10, 10]} intensity={0.8} color="#00BFFF" />
-                <pointLight position={[-10, -10, -10]} intensity={0.4} color="#0080FF" />
-                <spotLight
-                  position={[0, 10, 0]}
-                  angle={0.3}
-                  penumbra={1}
-                  intensity={0.6}
-                  color="#00BFFF"
-                />
-                <AnimatedSphere />
-                <ParticleField />
-              </Canvas>
-            </div>
-
-            {/* Full Cover Image - Covers absolute full container */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="absolute inset-0 z-10 group"
-              whileHover={{ scale: 1.01 }}
-            >
-              <img
-                src={mainProfileImage.url}
-                alt={mainProfileImage.alt}
-                className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
-              />
-              
-              {/* Gradient Overlay for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-              
-              {/* Glowing border effect */}
-              <div className="absolute inset-0 border-2 border-[#00BFFF]/30 group-hover:border-[#00BFFF]/60 transition-all duration-300"></div>
-              
-              {/* Optional overlay content */}
-              <div className="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h4 className="text-xl font-semibold mb-2">{mainProfileImage.title}</h4>
-                <p className="text-gray-300 text-sm">AI/ML Engineer & Full Stack Developer</p>
-              </div>
-            </motion.div>
-
-            {/* Animated border effect */}
-            <div className="absolute inset-0 border-2 border-transparent bg-gradient-to-r from-[#00BFFF] via-transparent to-[#00BFFF] opacity-20 animate-pulse"></div>
-          </motion.div>
+          <ProfileImage imageData={mainProfileImage} />
 
           {/* Content - Matches the full height */}
           <motion.div
@@ -222,99 +100,8 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Skills Visualization */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h3 className="text-3xl font-bold text-center mb-12 text-[#00BFFF] text-glow">
-            Core Competencies
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center p-6 bg-gray-900/50 rounded-xl border border-gray-700 hover:border-[#00BFFF] transition-all duration-300 card-3d"
-                whileHover={{ y: -10, scale: 1.05 }}
-              >
-                <div className="relative mb-4">
-                  <svg className="w-20 h-20 mx-auto" viewBox="0 0 36 36">
-                    <path
-                      className="text-gray-700"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      fill="none"
-                      d="M18 2.0845
-                        a 15.9155 15.9155 0 0 1 0 31.831
-                        a 15.9155 15.9155 0 0 1 0 -31.831"
-                    />
-                    <motion.path
-                      className="text-[#00BFFF]"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      fill="none"
-                      strokeDasharray={`${skill.level}, 100`}
-                      strokeLinecap="round"
-                      d="M18 2.0845
-                        a 15.9155 15.9155 0 0 1 0 31.831
-                        a 15.9155 15.9155 0 0 1 0 -31.831"
-                      initial={{ strokeDasharray: "0, 100" }}
-                      whileInView={{ strokeDasharray: `${skill.level}, 100` }}
-                      transition={{ duration: 2, delay: index * 0.2 }}
-                      viewport={{ once: true }}
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-[#00BFFF] font-bold text-lg">{skill.level}%</span>
-                  </div>
-                </div>
-                <h4 className="text-white font-semibold">{skill.name}</h4>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Interests */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-3xl font-bold text-center mb-12 text-[#00BFFF] text-glow">
-            Interests & Passions
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {interests.map((interest, index) => (
-              <motion.div
-                key={interest.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="p-6 bg-gray-900/50 rounded-xl border border-gray-700 hover:border-[#00BFFF] transition-all duration-300 card-3d group"
-                whileHover={{ y: -10, scale: 1.05 }}
-              >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {interest.icon}
-                </div>
-                <h4 className="text-white font-semibold text-lg mb-2 group-hover:text-[#00BFFF] transition-colors duration-300">
-                  {interest.name}
-                </h4>
-                <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300">
-                  {interest.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        <SkillsVisualization skills={skills} />
+        <InterestsGrid interests={interests} />
       </div>
     </section>
   );
