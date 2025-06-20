@@ -88,7 +88,26 @@ const About = () => {
     { icon: '🎨', name: 'UI/UX Design', description: 'Crafting beautiful interfaces' }
   ];
 
-  // Example images - Replace these URLs with your own images
+  // Main profile images for the large container - Replace with your own images
+  const mainProfileImages = [
+    {
+      url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&crop=face",
+      alt: "Your professional photo",
+      title: "Professional Portrait"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
+      alt: "Your workspace setup", 
+      title: "My Workspace"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=800&h=600&fit=crop",
+      alt: "Team collaboration photo",
+      title: "Team Collaboration"
+    }
+  ];
+
+  // Small overlay images for bottom section
   const profileImages = [
     {
       url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop&crop=face",
@@ -126,7 +145,7 @@ const About = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Enhanced 3D Visual - Now covers full height */}
+          {/* Enhanced Visual Container with 3D Animation AND Your Images */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -134,27 +153,90 @@ const About = () => {
             viewport={{ once: true }}
             className="relative h-[600px] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800"
           >
-            <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
-              <ambientLight intensity={0.3} />
-              <pointLight position={[10, 10, 10]} intensity={1} color="#00BFFF" />
-              <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0080FF" />
-              <spotLight
-                position={[0, 10, 0]}
-                angle={0.3}
-                penumbra={1}
-                intensity={0.8}
-                color="#00BFFF"
-              />
-              <AnimatedSphere />
-              <ParticleField />
-            </Canvas>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
-            
+            {/* 3D Animation Background Layer */}
+            <div className="absolute inset-0">
+              <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
+                <ambientLight intensity={0.2} />
+                <pointLight position={[10, 10, 10]} intensity={0.8} color="#00BFFF" />
+                <pointLight position={[-10, -10, -10]} intensity={0.4} color="#0080FF" />
+                <spotLight
+                  position={[0, 10, 0]}
+                  angle={0.3}
+                  penumbra={1}
+                  intensity={0.6}
+                  color="#00BFFF"
+                />
+                <AnimatedSphere />
+                <ParticleField />
+              </Canvas>
+            </div>
+
+            {/* Main Image Gallery - ADD YOUR IMAGES HERE */}
+            <div className="absolute inset-0 z-10 p-6 flex flex-col justify-center">
+              <div className="space-y-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="text-center mb-6"
+                >
+                  <h3 className="text-2xl font-bold text-[#00BFFF] mb-2">🖼️ Replace with Your Images</h3>
+                  <p className="text-sm text-gray-300">Update the mainProfileImages array in the code</p>
+                </motion.div>
+
+                <div className="grid grid-cols-1 gap-4 max-w-md mx-auto">
+                  {mainProfileImages.map((image, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.9, x: index % 2 === 0 ? -50 : 50 }}
+                      whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.3 }}
+                      viewport={{ once: true }}
+                      className="relative group"
+                      whileHover={{ scale: 1.05, y: -5 }}
+                    >
+                      <div className="relative overflow-hidden rounded-lg border-2 border-gray-600 group-hover:border-[#00BFFF] transition-all duration-300">
+                        <img
+                          src={image.url}
+                          alt={image.alt}
+                          className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <h4 className="text-white font-semibold text-sm">{image.title}</h4>
+                          </div>
+                        </div>
+                        {/* Glowing border effect */}
+                        <div className="absolute inset-0 rounded-lg border border-[#00BFFF] opacity-0 group-hover:opacity-50 transition-opacity duration-300 animate-pulse"></div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Instructions for adding your images */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.0 }}
+                  viewport={{ once: true }}
+                  className="bg-black/50 backdrop-blur-sm rounded-lg p-4 border border-gray-600 mt-6"
+                >
+                  <div className="text-xs text-gray-300 space-y-1">
+                    <p>📝 <strong>To add your images:</strong></p>
+                    <p>• Update <code className="bg-gray-800 px-1 rounded text-[#00BFFF]">mainProfileImages</code> array</p>
+                    <p>• Use: <code className="bg-gray-800 px-1 rounded text-[#00BFFF]">"/your-photo.jpg"</code> for uploaded files</p>
+                    <p>• Or: <code className="bg-gray-800 px-1 rounded text-[#00BFFF]">"https://your-site.com/image.jpg"</code></p>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
             {/* Animated border effect */}
             <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-[#00BFFF] via-transparent to-[#00BFFF] opacity-30 animate-pulse"></div>
             
-            {/* ADD YOUR IMAGES HERE - Example image overlay */}
-            <div className="absolute bottom-4 left-4 right-4">
+            {/* Small overlay images at bottom */}
+            <div className="absolute bottom-4 left-4 right-4 z-20">
               <div className="grid grid-cols-3 gap-2">
                 {profileImages.map((image, index) => (
                   <motion.div
@@ -168,17 +250,14 @@ const About = () => {
                     <img
                       src={image.url}
                       alt={image.alt}
-                      className="w-full h-20 object-cover rounded-lg border-2 border-gray-600 group-hover:border-[#00BFFF] transition-all duration-300 opacity-80 group-hover:opacity-100"
+                      className="w-full h-16 object-cover rounded-lg border-2 border-gray-600 group-hover:border-[#00BFFF] transition-all duration-300 opacity-80 group-hover:opacity-100"
                     />
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
-                      <p className="text-xs text-white text-center px-2">{image.caption}</p>
+                      <p className="text-xs text-white text-center px-1">{image.caption}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
-              <p className="text-xs text-gray-400 mt-2 text-center">
-                💡 Replace these example images with your own photos in the code
-              </p>
             </div>
           </motion.div>
 
