@@ -89,7 +89,7 @@ const About = () => {
 
   // Main profile image - Replace with your own image
   const mainProfileImage = {
-    url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&crop=face",
+    url: "/lovable-uploads/8092c197-b951-410c-b576-ad2590b558c1.png",
     alt: "Your professional photo",
     title: "Professional Portrait"
   };
@@ -113,13 +113,13 @@ const About = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Enhanced Visual Container with 3D Animation AND Your Image */}
+          {/* Full Container Image with 3D Background */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative h-[600px] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800"
+            className="relative h-[600px] rounded-2xl overflow-hidden"
           >
             {/* 3D Animation Background Layer */}
             <div className="absolute inset-0">
@@ -139,36 +139,38 @@ const About = () => {
               </Canvas>
             </div>
 
-            {/* Main Image - Replace with your image */}
-            <div className="absolute inset-0 z-10 p-6 flex items-center justify-center">
+            {/* Full Cover Image */}
+            <div className="absolute inset-0 z-10">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="relative group max-w-md mx-auto"
-                whileHover={{ scale: 1.05, y: -5 }}
+                className="relative h-full group"
+                whileHover={{ scale: 1.02 }}
               >
-                <div className="relative overflow-hidden rounded-2xl border-2 border-gray-600 group-hover:border-[#00BFFF] transition-all duration-300">
-                  <img
-                    src={mainProfileImage.url}
-                    alt={mainProfileImage.alt}
-                    className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h4 className="text-white font-semibold text-lg">{mainProfileImage.title}</h4>
-                      <p className="text-gray-300 text-sm mt-1">Replace with: /your-photo.jpg</p>
-                    </div>
-                  </div>
-                  {/* Glowing border effect */}
-                  <div className="absolute inset-0 rounded-2xl border border-[#00BFFF] opacity-0 group-hover:opacity-50 transition-opacity duration-300 animate-pulse"></div>
+                <img
+                  src={mainProfileImage.url}
+                  alt={mainProfileImage.alt}
+                  className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                />
+                
+                {/* Gradient Overlay for better text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-2xl"></div>
+                
+                {/* Glowing border effect */}
+                <div className="absolute inset-0 rounded-2xl border-2 border-[#00BFFF]/30 group-hover:border-[#00BFFF]/60 transition-all duration-300"></div>
+                
+                {/* Optional overlay content */}
+                <div className="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h4 className="text-xl font-semibold mb-2">{mainProfileImage.title}</h4>
+                  <p className="text-gray-300 text-sm">AI/ML Engineer & Full Stack Developer</p>
                 </div>
               </motion.div>
             </div>
 
             {/* Animated border effect */}
-            <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-[#00BFFF] via-transparent to-[#00BFFF] opacity-30 animate-pulse"></div>
+            <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-[#00BFFF] via-transparent to-[#00BFFF] opacity-20 animate-pulse"></div>
           </motion.div>
 
           {/* Content */}
