@@ -1,4 +1,3 @@
-
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ChevronRight, ChevronLeft, ExternalLink } from 'lucide-react';
@@ -103,7 +102,7 @@ const WorkExperience = () => {
     setIsSliderOpen(!isSliderOpen);
   };
 
-  const handleImageClick = (link) => {
+  const handleImageClick = (link: string) => {
     window.open(link, '_blank');
   };
 
@@ -129,13 +128,11 @@ const WorkExperience = () => {
           </p>
         </motion.div>
 
-        {/* Timeline */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-[#00BFFF] mb-8 text-center">
             Career Timeline
           </h3>
           <div className="relative">
-            {/* Timeline Line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#00BFFF] to-transparent"></div>
 
             <div className="space-y-8">
@@ -175,7 +172,6 @@ const WorkExperience = () => {
           </div>
         </div>
 
-        {/* Companies Worked With Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -190,7 +186,6 @@ const WorkExperience = () => {
             Worked with industry leaders to deliver cutting-edge solutions
           </p>
           
-          {/* Companies Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
             {companiesWorkedWith.map((company, index) => (
               <motion.div
@@ -207,7 +202,6 @@ const WorkExperience = () => {
                 }}
                 onClick={handleCardClick}
               >
-                {/* Company Logo */}
                 <div className="flex items-center justify-center mb-3">
                   <img
                     src={company.logo}
@@ -216,17 +210,14 @@ const WorkExperience = () => {
                   />
                 </div>
 
-                {/* Company Name */}
                 <h4 className="text-white text-sm font-semibold text-center mb-2 group-hover:text-[#00BFFF] transition-colors duration-300">
                   {company.name}
                 </h4>
 
-                {/* Description */}
                 <p className="text-gray-400 text-xs text-center group-hover:text-gray-300 transition-colors duration-300">
                   {company.description}
                 </p>
 
-                {/* Arrow indicator */}
                 <motion.div 
                   className="absolute top-2 right-2"
                   animate={{ rotate: isSliderOpen ? 90 : 0 }}
@@ -235,13 +226,11 @@ const WorkExperience = () => {
                   <ChevronRight className="w-4 h-4 text-[#00BFFF] opacity-70" />
                 </motion.div>
 
-                {/* Glow effect on hover */}
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#00BFFF]/0 via-[#00BFFF]/5 to-[#00BFFF]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.div>
             ))}
           </div>
 
-          {/* Horizontal Slider */}
           <AnimatePresence>
             {isSliderOpen && (
               <motion.div
@@ -280,7 +269,6 @@ const WorkExperience = () => {
                           />
                         </div>
                         
-                        {/* Overlay */}
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                           <div className="text-center">
                             <ExternalLink className="w-6 h-6 text-white mb-2 mx-auto" />
@@ -288,7 +276,6 @@ const WorkExperience = () => {
                           </div>
                         </div>
 
-                        {/* Title at bottom */}
                         <div className="p-3">
                           <h5 className="text-white text-sm font-medium truncate">{project.title}</h5>
                         </div>
@@ -300,14 +287,12 @@ const WorkExperience = () => {
             )}
           </AnimatePresence>
 
-          {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-[#00BFFF]/5 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-purple-500/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
           </div>
         </motion.div>
 
-        {/* Detailed Experience */}
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
@@ -318,7 +303,6 @@ const WorkExperience = () => {
             className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl border border-gray-700 hover:border-[#00BFFF] transition-all duration-500 glow-blue card-3d"
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Company Info */}
               <div className="lg:col-span-1">
                 <div className="mb-6">
                   <h3 className="text-2xl font-bold text-white mb-2">
@@ -334,7 +318,6 @@ const WorkExperience = () => {
                   <div className="text-gray-400 text-sm">⏱️ {exp.duration}</div>
                 </div>
 
-                {/* Achievements */}
                 <div className="mb-6">
                   <h4 className="text-lg font-semibold text-[#00BFFF] mb-3">
                     Key Achievements
@@ -357,7 +340,6 @@ const WorkExperience = () => {
                 </div>
               </div>
 
-              {/* Responsibilities */}
               <div className="lg:col-span-2">
                 <div className="mb-6">
                   <h4 className="text-lg font-semibold text-[#00BFFF] mb-4">
@@ -380,7 +362,6 @@ const WorkExperience = () => {
                   </ul>
                 </div>
 
-                {/* Technologies */}
                 <div>
                   <h4 className="text-lg font-semibold text-[#00BFFF] mb-4">
                     Technologies Used
@@ -399,7 +380,7 @@ const WorkExperience = () => {
                         {tech}
                       </motion.span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             </div>
