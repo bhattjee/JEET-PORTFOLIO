@@ -88,6 +88,25 @@ const About = () => {
     { icon: '🎨', name: 'UI/UX Design', description: 'Crafting beautiful interfaces' }
   ];
 
+  // Example images - Replace these URLs with your own images
+  const profileImages = [
+    {
+      url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop&crop=face",
+      alt: "Professional headshot",
+      caption: "Replace with your professional photo"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=600&h=600&fit=crop&crop=face", 
+      alt: "Workspace photo",
+      caption: "Replace with your workspace/coding setup"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=600&fit=crop&crop=face",
+      alt: "Team collaboration",
+      caption: "Replace with team/project photos"
+    }
+  ];
+
   return (
     <section id="about" className="py-20 px-8 bg-black">
       <div className="max-w-7xl mx-auto">
@@ -133,6 +152,34 @@ const About = () => {
             
             {/* Animated border effect */}
             <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-[#00BFFF] via-transparent to-[#00BFFF] opacity-30 animate-pulse"></div>
+            
+            {/* ADD YOUR IMAGES HERE - Example image overlay */}
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="grid grid-cols-3 gap-2">
+                {profileImages.map((image, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                    className="relative group"
+                  >
+                    <img
+                      src={image.url}
+                      alt={image.alt}
+                      className="w-full h-20 object-cover rounded-lg border-2 border-gray-600 group-hover:border-[#00BFFF] transition-all duration-300 opacity-80 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                      <p className="text-xs text-white text-center px-2">{image.caption}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+              <p className="text-xs text-gray-400 mt-2 text-center">
+                💡 Replace these example images with your own photos in the code
+              </p>
+            </div>
           </motion.div>
 
           {/* Content */}
@@ -183,6 +230,22 @@ const About = () => {
                 "Innovation distinguishes between a leader and a follower. I choose to lead through technology."
               </p>
             </motion.blockquote>
+
+            {/* Additional image placeholder section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+              viewport={{ once: true }}
+              className="bg-gray-900/30 rounded-lg p-4 border border-gray-700"
+            >
+              <h4 className="text-[#00BFFF] font-semibold mb-2">🖼️ Add Your Personal Images Here:</h4>
+              <div className="text-sm text-gray-400 space-y-1">
+                <p>• Replace the example URLs in the <code className="bg-gray-800 px-1 rounded">profileImages</code> array</p>
+                <p>• Upload your images and use the paths like: <code className="bg-gray-800 px-1 rounded">/your-image.jpg</code></p>
+                <p>• Or use external URLs: <code className="bg-gray-800 px-1 rounded">https://your-site.com/image.jpg</code></p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
 
