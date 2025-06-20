@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
@@ -114,13 +113,13 @@ const About = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-16">
-          {/* Full Container Image with 3D Background - Now covers entire vertical space */}
+          {/* Full Container Image with 3D Background - Covers complete vertical space */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative min-h-[800px] rounded-2xl overflow-hidden"
+            className="relative h-screen max-h-[900px] min-h-[700px] rounded-2xl overflow-hidden"
           >
             {/* 3D Animation Background Layer */}
             <div className="absolute inset-0">
@@ -140,47 +139,46 @@ const About = () => {
               </Canvas>
             </div>
 
-            {/* Full Cover Image - Now covers entire container */}
-            <div className="absolute inset-0 z-10">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="relative h-full w-full group"
-                whileHover={{ scale: 1.02 }}
-              >
-                <img
-                  src={mainProfileImage.url}
-                  alt={mainProfileImage.alt}
-                  className="w-full h-full object-cover object-center rounded-2xl group-hover:scale-105 transition-transform duration-500"
-                />
-                
-                {/* Gradient Overlay for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent rounded-2xl"></div>
-                
-                {/* Glowing border effect */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-[#00BFFF]/30 group-hover:border-[#00BFFF]/60 transition-all duration-300"></div>
-                
-                {/* Optional overlay content */}
-                <div className="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="text-xl font-semibold mb-2">{mainProfileImage.title}</h4>
-                  <p className="text-gray-300 text-sm">AI/ML Engineer & Full Stack Developer</p>
-                </div>
-              </motion.div>
-            </div>
+            {/* Full Cover Image - Covers absolute full container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="absolute inset-0 z-10 group"
+              whileHover={{ scale: 1.01 }}
+            >
+              <img
+                src={mainProfileImage.url}
+                alt={mainProfileImage.alt}
+                className="absolute inset-0 w-full h-full object-cover object-center rounded-2xl group-hover:scale-[1.02] transition-transform duration-500"
+                style={{ objectPosition: 'center center' }}
+              />
+              
+              {/* Gradient Overlay for better text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent rounded-2xl"></div>
+              
+              {/* Glowing border effect */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-[#00BFFF]/30 group-hover:border-[#00BFFF]/60 transition-all duration-300"></div>
+              
+              {/* Optional overlay content */}
+              <div className="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h4 className="text-xl font-semibold mb-2">{mainProfileImage.title}</h4>
+                <p className="text-gray-300 text-sm">AI/ML Engineer & Full Stack Developer</p>
+              </div>
+            </motion.div>
 
             {/* Animated border effect */}
             <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-[#00BFFF] via-transparent to-[#00BFFF] opacity-20 animate-pulse"></div>
           </motion.div>
 
-          {/* Content - Now matches the height */}
+          {/* Content - Matches the full height */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-6 flex flex-col justify-center min-h-[800px]"
+            className="space-y-6 flex flex-col justify-center h-screen max-h-[900px] min-h-[700px]"
           >
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <motion.p
