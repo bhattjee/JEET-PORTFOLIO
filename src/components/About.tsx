@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
@@ -8,20 +9,64 @@ const AnimatedSphere = () => {
 
   useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.1;
+      meshRef.current.rotation.x = state.clock.elapsedTime * 0.3;
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.2;
+      meshRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
+      
+      // Add floating animation
+      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.5;
+      
+      // Pulsing scale effect
+      const scale = 3 + Math.sin(state.clock.elapsedTime * 1.2) * 0.2;
+      meshRef.current.scale.setScalar(scale);
     }
   });
 
   return (
-    <mesh ref={meshRef} scale={2}>
-      <sphereGeometry args={[1, 100, 200]} />
+    <mesh ref={meshRef}>
+      <sphereGeometry args={[1, 64, 64]} />
       <meshPhongMaterial
         color="#00BFFF"
         transparent
-        opacity={0.8}
+        opacity={0.7}
+        wireframe={false}
+        shininess={100}
       />
     </mesh>
+  );
+};
+
+const ParticleField = () => {
+  const pointsRef = useRef<THREE.Points>(null);
+  
+  useFrame((state) => {
+    if (pointsRef.current) {
+      pointsRef.current.rotation.x = state.clock.elapsedTime * 0.05;
+      pointsRef.current.rotation.y = state.clock.elapsedTime * 0.1;
+    }
+  });
+
+  const particleCount = 200;
+  const positions = new Float32Array(particleCount * 3);
+  
+  for (let i = 0; i < particleCount; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 10;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+  }
+
+  return (
+    <points ref={pointsRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          count={particleCount}
+          array={positions}
+          itemSize={3}
+        />
+      </bufferGeometry>
+      <pointsMaterial color="#00BFFF" size={0.02} transparent opacity={0.6} />
+    </points>
   );
 };
 
@@ -62,20 +107,32 @@ const About = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* 3D Visual */}
+          {/* Enhanced 3D Visual - Now covers full height */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative h-96 rounded-2xl overflow-hidden"
+            className="relative h-[600px] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800"
           >
-            <Canvas>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} />
+            <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
+              <ambientLight intensity={0.3} />
+              <pointLight position={[10, 10, 10]} intensity={1} color="#00BFFF" />
+              <pointLight position={[-10, -10, -10]} intensity={0.5} color="#0080FF" />
+              <spotLight
+                position={[0, 10, 0]}
+                angle={0.3}
+                penumbra={1}
+                intensity={0.8}
+                color="#00BFFF"
+              />
               <AnimatedSphere />
+              <ParticleField />
             </Canvas>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+            
+            {/* Animated border effect */}
+            <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-[#00BFFF] via-transparent to-[#00BFFF] opacity-30 animate-pulse"></div>
           </motion.div>
 
           {/* Content */}
@@ -87,26 +144,42 @@ const About = () => {
             className="space-y-6"
           >
             <div className="space-y-4 text-gray-300 leading-relaxed">
-              <p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
                 I'm a passionate AI/ML Engineer and Full Stack Developer with over 2.5 years of experience at a leading MNC. My journey in technology began with a fascination for artificial intelligence and has evolved into a comprehensive skill set spanning modern web development and machine learning.
-              </p>
-              <p>
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
                 I specialize in creating intelligent, scalable applications that bridge the gap between cutting-edge AI research and practical business solutions. My expertise lies in developing end-to-end solutions that leverage the latest in AI/ML technologies, from natural language processing to computer vision, combined with robust full-stack development practices.
-              </p>
-              <p>
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
                 When I'm not coding, I contribute to open-source projects and mentor aspiring developers in the AI/ML community. I'm constantly exploring emerging technologies and frameworks, ensuring that every project incorporates the most effective and innovative approaches.
-              </p>
+              </motion.p>
             </div>
 
             {/* Quote */}
             <motion.blockquote
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
               viewport={{ once: true }}
-              className="border-l-4 border-[#00BFFF] pl-6 py-4 bg-gray-900/50 rounded-r-lg"
+              className="border-l-4 border-[#00BFFF] pl-6 py-4 bg-gray-900/50 rounded-r-lg relative overflow-hidden"
             >
-              <p className="text-[#00BFFF] text-lg italic">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00BFFF]/10 to-transparent"></div>
+              <p className="text-[#00BFFF] text-lg italic relative z-10">
                 "Innovation distinguishes between a leader and a follower. I choose to lead through technology."
               </p>
             </motion.blockquote>
