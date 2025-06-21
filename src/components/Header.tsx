@@ -45,9 +45,9 @@ const Header = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 w-fit ${
+        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ${
           scrolled ? 'glass-morph glow-blue' : 'bg-black/30 backdrop-blur-sm'
-        }`}
+        } w-fit md:w-fit max-w-none`}
         style={{
           borderRadius: '20px',
           padding: '12px 24px'
@@ -81,10 +81,10 @@ const Header = () => {
         </nav>
 
         {/* Mobile Hamburger Button */}
-        <div className="md:hidden flex items-center justify-center w-full">
+        <div className="md:hidden flex items-center justify-center min-w-[60px]">
           <motion.button
             onClick={toggleMobileMenu}
-            className="text-white hover:text-[#00BFFF] transition-colors duration-300 p-2"
+            className="text-white hover:text-[#00BFFF] transition-colors duration-300 p-2 flex items-center justify-center"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
