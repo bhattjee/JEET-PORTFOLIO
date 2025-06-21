@@ -31,7 +31,7 @@ const Header = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setActiveSection(sectionId);
-      setIsMobileMenuOpen(false); // Close mobile menu after navigation
+      setIsMobileMenuOpen(false);
     }
   };
 
@@ -45,7 +45,7 @@ const Header = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ${
+        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 w-fit ${
           scrolled ? 'glass-morph glow-blue' : 'bg-black/30 backdrop-blur-sm'
         }`}
         style={{
@@ -54,12 +54,12 @@ const Header = () => {
         }}
       >
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex items-center justify-center space-x-8">
           {menuItems.map((item) => (
             <motion.button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+              className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 whitespace-nowrap ${
                 activeSection === item.id
                   ? 'text-[#00BFFF] text-glow'
                   : 'text-white hover:text-[#00BFFF]'
@@ -81,7 +81,7 @@ const Header = () => {
         </nav>
 
         {/* Mobile Hamburger Button */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center justify-center">
           <motion.button
             onClick={toggleMobileMenu}
             className="text-white hover:text-[#00BFFF] transition-colors duration-300"
