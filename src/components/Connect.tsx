@@ -392,13 +392,15 @@ const Connect = () => {
               innovators.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                className="px-8 py-3 bg-[#00BFFF] text-black font-semibold rounded-full hover:bg-white transition-all duration-300 glow-blue-intense"
-                 whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Start a Conversation
-              </motion.button>
+              <a href="#connect">
+                <motion.button
+                  className="px-8 py-3 bg-[#00BFFF] text-black font-semibold rounded-full hover:bg-white transition-all duration-300 glow-blue-intense"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Start a Conversation
+                </motion.button>
+              </a>
               <a
                 href="src/pages/CV-JEET23.pdf" // Replace with your actual PDF file path
                 target="_blank"

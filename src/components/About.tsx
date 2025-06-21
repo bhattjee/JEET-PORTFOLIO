@@ -107,18 +107,24 @@ const About = () => {
                 <AnimatedSphere />
               </Canvas>
             </div>
-            
+
             {/* Full Coverage Image */}
             <div className="absolute inset-0 z-10">
-              <img
-                src="https://imgs.search.brave.com/9li4GtRqqZNsT3_QKuzOHGq_M0Jhi3O1wVt7CRqvYF8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2E5L1J5YW5fR29z/bGluZ18oMzYyMDEy/NTY3MDUpXyhjcm9w/cGVkKS5qcGc"
-                alt="Your Name"
-                className="w-full h-full object-cover"
-              />
+              <a
+                href="src/pages/Profile.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="src/pages/Profile.jpg"
+                  alt="JEET BHATT"
+                  className="w-full h-full object-cover"
+                />
+              </a>
               {/* Overlay for better text readability if needed */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
-            
+
             {/* Optional: Animated border/glow effect */}
             <div className="absolute inset-0 rounded-2xl border-2 border-[#00BFFF]/50 animate-pulse"></div>
           </motion.div>
