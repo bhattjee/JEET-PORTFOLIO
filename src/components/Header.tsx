@@ -105,7 +105,7 @@ const Header = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-40 md:hidden flex items-center justify-center"
           >
             {/* Backdrop */}
             <div 
@@ -115,34 +115,34 @@ const Header = () => {
             
             {/* Mobile Menu */}
             <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="absolute right-0 top-0 h-full w-64 bg-gray-900/95 backdrop-blur-md border-l border-gray-700"
+              className="relative bg-gray-900/95 backdrop-blur-md border border-gray-700 rounded-2xl p-8 mx-8 max-w-sm w-full"
             >
-              <div className="flex flex-col h-full pt-20 px-6">
-                <nav className="flex flex-col space-y-4">
+              <div className="flex flex-col items-center">
+                <nav className="flex flex-col space-y-4 w-full">
                   {menuItems.map((item, index) => (
                     <motion.button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className={`relative px-4 py-3 text-left text-lg font-medium transition-all duration-300 rounded-lg ${
+                      className={`relative px-6 py-4 text-center text-lg font-medium transition-all duration-300 rounded-lg w-full ${
                         activeSection === item.id
                           ? 'text-[#00BFFF] bg-[#00BFFF]/10 text-glow'
                           : 'text-white hover:text-[#00BFFF] hover:bg-gray-800/50'
                       }`}
-                      whileHover={{ x: 10 }}
+                      whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       {item.label}
                       {activeSection === item.id && (
                         <motion.div
                           layoutId="mobileActiveIndicator"
-                          className="absolute left-0 top-0 bottom-0 w-1 bg-[#00BFFF] glow-blue-intense rounded-r"
+                          className="absolute inset-0 border-2 border-[#00BFFF] glow-blue-intense rounded-lg"
                           initial={false}
                           transition={{ type: "spring", stiffness: 500, damping: 30 }}
                         />
