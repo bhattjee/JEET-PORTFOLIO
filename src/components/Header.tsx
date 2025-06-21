@@ -81,10 +81,10 @@ const Header = () => {
         </nav>
 
         {/* Mobile Hamburger Button */}
-        <div className="md:hidden flex items-center justify-center">
+        <div className="md:hidden flex items-center justify-center w-full">
           <motion.button
             onClick={toggleMobileMenu}
-            className="text-white hover:text-[#00BFFF] transition-colors duration-300"
+            className="text-white hover:text-[#00BFFF] transition-colors duration-300 p-2"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
