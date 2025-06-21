@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -7,64 +7,92 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'AI-Powered E-Commerce Recommendation System',
-      description: 'Machine learning-driven product recommendation engine with real-time analytics and personalized user experiences.',
-      techStack: ['Python', 'TensorFlow', 'React', 'MongoDB', 'FastAPI'],
-      features: ['ML-based product recommendations', 'Real-time analytics dashboard', 'User behavior tracking', 'A/B testing framework'],
-      impact: '35% increase in user engagement',
-      color: '#00BFFF',
-      gradient: 'from-blue-500 to-cyan-400'
+      title: "GRITHUB – AI-Based Workout and Diet Plan Generator",
+      description:
+        "An intelligent system designed to generate personalized workout routines and diet plans using AI-based recommendations tailored to individual user profiles.",
+      techStack: [
+        "Machine Learning",
+        "Python",
+        "Nutrition Algorithms",
+        "Fitness Analytics",
+        "Personalization Models",
+      ],
+      features: [
+        "Customized fitness and meal plans based on physiological data",
+        "Integration of AI models for user-specific recommendations",
+        "Interactive goal setting and progress tracking interface",
+        "Automated adjustments based on user input and feedback",
+      ],
+      impact:
+        "Achieved a 97/100 score as a bachelor thesis for its innovation, accuracy, and real-world applicability",
+      color: "#00BFFF",
+      gradient: "from-blue-500 to-cyan-400",
     },
     {
       id: 2,
-      title: 'Full Stack Social Media Analytics Dashboard',
-      description: 'Comprehensive analytics platform for social media management with real-time data visualization and sentiment analysis.',
-      techStack: ['Next.js', 'Node.js', 'PostgreSQL', 'Chart.js', 'Redis'],
-      features: ['Real-time data visualization', 'User sentiment analysis', 'Multi-platform integration', 'Custom reporting'],
-      impact: 'Streamlined management for 50+ clients',
-      color: '#FF6B6B',
-      gradient: 'from-red-500 to-pink-400'
+      title: "AI-Powered Pizza Suggestion and Generator",
+      description:
+        "An intelligent food-tech solution that recommends pizza combinations and generates custom recipes based on user preferences, dietary needs, and local ingredients.",
+      techStack: [
+        "Python",
+        "Scikit-learn",
+        "HTML and CSS",
+        "Flask",
+        "MongoDB",
+        "Tensorflow",
+        "DeepL API",
+      ],
+      features: [
+        "AI-driven flavor and ingredient pairing",
+        "Personalized pizza suggestions based on user input",
+        "Dynamic recipe generation with nutritional insights",
+        "Interactive frontend for live customization",
+      ],
+      impact:
+        "Improved user satisfaction through personalized culinary recommendations and increased engagement for food-tech platforms",
+      color: "#00BFFF",
+      gradient: "from-blue-500 to-cyan-400",
     },
     {
       id: 3,
-      title: 'Computer Vision Quality Control System',
-      description: 'Automated defect detection system using computer vision for manufacturing quality assurance with real-time processing.',
-      techStack: ['Python', 'OpenCV', 'FastAPI', 'React', 'Docker'],
-      features: ['Automated defect detection', 'Real-time processing', 'Quality metrics tracking', 'Integration with production lines'],
-      impact: '90% accuracy in quality assessment',
-      color: '#4ECDC4',
-      gradient: 'from-teal-500 to-green-400'
+      title: "Real-Time Vehicle Detection and Speed Monitoring System",
+      description:
+        "Camera-based system built on Raspberry Pi for detecting the number of vehicles and estimating their speed in real time using computer vision techniques.",
+      techStack: ["Python", "OpenCV", "Raspberry Pi", "YOLOv5", "NumPy"],
+      features: [
+        "Real-time car detection with bounding box tracking",
+        "Speed estimation using frame-difference and calibration",
+        "Lightweight deployment on Raspberry Pi for edge computing",
+        "Live video feed processing and analytics",
+      ],
+      impact:
+        "Enabled low-cost, on-site traffic monitoring with efficient vehicle tracking",
+      color: "#00BFFF",
+      gradient: "from-blue-500 to-cyan-400",
     },
     {
       id: 4,
-      title: 'AI Chatbot with NLP Integration',
-      description: 'Context-aware conversational AI with natural language processing capabilities and multi-language support.',
-      techStack: ['Python', 'LangChain', 'OpenAI API', 'Vue.js', 'MongoDB'],
-      features: ['Context-aware conversations', 'Multi-language support', 'Intent recognition', 'Knowledge base integration'],
-      impact: 'Reduced customer service workload by 60%',
-      color: '#FFE66D',
-      gradient: 'from-yellow-500 to-orange-400'
+      title: "AI-Powered Intelligent Chat Interface with NLP Capabilities",
+      description:
+        "A context-aware conversational AI system that understands and responds based on prior interactions. Equipped with advanced natural language processing for intelligent dialogue across multiple topics",
+      techStack: [
+        "Python",
+        "LangChain",
+        "OpenAI API",
+        "Vue.js",
+        "MongoDB",
+        "Mistral API",
+      ],
+      features: [
+        "Context-aware conversations",
+        "Vast token support",
+        "Intent recognition",
+        "Knowledge base integration",
+      ],
+      impact: "Reduced customer service workload by 60%",
+      color: "#00BFFF",
+      gradient: "from-blue-500 to-cyan-400",
     },
-    {
-      id: 5,
-      title: 'Real-Time Collaborative Code Editor',
-      description: 'Live collaboration platform for developers with real-time editing, syntax highlighting, and version control.',
-      techStack: ['Node.js', 'Socket.io', 'React', 'MongoDB', 'CodeMirror'],
-      features: ['Live collaboration', 'Syntax highlighting', 'Version control', 'Multiple language support'],
-      impact: 'Enhanced team productivity for remote development',
-      color: '#9B59B6',
-      gradient: 'from-purple-500 to-indigo-400'
-    },
-    {
-      id: 6,
-      title: 'ML Model Deployment Platform',
-      description: 'One-click machine learning model deployment platform with auto-scaling and monitoring capabilities.',
-      techStack: ['Docker', 'Kubernetes', 'FastAPI', 'React', 'Prometheus'],
-      features: ['One-click ML model deployment', 'Auto-scaling infrastructure', 'Performance monitoring', 'CI/CD pipelines'],
-      impact: 'Reduced deployment time from hours to minutes',
-      color: '#E74C3C',
-      gradient: 'from-red-500 to-yellow-400'
-    }
   ];
 
   const containerVariants = {
@@ -72,9 +100,9 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -84,9 +112,9 @@ const Projects = () => {
       y: 0,
       rotateX: 0,
       transition: {
-        duration: 0.8
-      }
-    }
+        duration: 0.8,
+      },
+    },
   };
 
   return (
@@ -103,7 +131,8 @@ const Projects = () => {
             Featured Projects
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            A showcase of innovative AI/ML solutions and full-stack applications that drive real business impact
+            A showcase of innovative AI/ML solutions and full-stack applications
+            that drive real business impact
           </p>
         </motion.div>
 
@@ -121,23 +150,29 @@ const Projects = () => {
               className="group relative p-8 bg-gradient-to-br from-gray-900 to-black rounded-2xl border border-gray-700 hover:border-[#00BFFF] transition-all duration-500 card-3d"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
-              whileHover={{ 
-                y: -15, 
-                rotateX: 8, 
+              whileHover={{
+                y: -15,
+                rotateX: 8,
                 rotateY: 5,
-                scale: 1.02
+                scale: 1.02,
               }}
             >
               <div className="relative z-10">
                 {/* Project Header */}
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${project.gradient} flex items-center justify-center`}>
-                      <span className="text-white font-bold text-lg">{project.id}</span>
+                    <div
+                      className={`w-12 h-12 rounded-full bg-gradient-to-r ${project.gradient} flex items-center justify-center`}
+                    >
+                      <span className="text-white font-bold text-lg">
+                        {project.id}
+                      </span>
                     </div>
                     <motion.div
                       className="flex space-x-2"
-                      animate={{ rotate: hoveredProject === project.id ? 360 : 0 }}
+                      animate={{
+                        rotate: hoveredProject === project.id ? 360 : 0,
+                      }}
                       transition={{ duration: 0.6 }}
                     >
                       <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -145,11 +180,11 @@ const Projects = () => {
                       <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     </motion.div>
                   </div>
-                  
+
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#00BFFF] transition-colors duration-300">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-gray-300 leading-relaxed mb-4">
                     {project.description}
                   </p>
@@ -199,7 +234,9 @@ const Projects = () => {
 
                 {/* Impact */}
                 <div className="mb-6">
-                  <div className={`inline-block px-4 py-2 bg-gradient-to-r ${project.gradient} rounded-full`}>
+                  <div
+                    className={`inline-block px-4 py-2 bg-gradient-to-r ${project.gradient} rounded-full`}
+                  >
                     <span className="text-black font-semibold text-sm">
                       📈 {project.impact}
                     </span>
@@ -229,13 +266,15 @@ const Projects = () => {
               <motion.div
                 className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                 animate={{
-                  opacity: hoveredProject === project.id ? 0.1 : 0
+                  opacity: hoveredProject === project.id ? 0.1 : 0,
                 }}
               />
-              
+
               {/* Corner Accent */}
               <div className="absolute top-0 right-0 w-20 h-20">
-                <div className={`absolute top-0 right-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-transparent border-r-${project.color} opacity-20 rounded-tr-2xl`}></div>
+                <div
+                  className={`absolute top-0 right-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-transparent border-r-${project.color} opacity-20 rounded-tr-2xl`}
+                ></div>
               </div>
             </motion.div>
           ))}

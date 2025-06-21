@@ -1,7 +1,15 @@
-import { motion } from 'framer-motion';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
-import * as THREE from 'three';
+import { motion } from "framer-motion";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+import * as THREE from "three";
+import {
+  Brain,
+  Rocket,
+  BookOpen,
+  Users,
+  Gamepad2,
+  Palette,
+} from "lucide-react";
 
 const AnimatedSphere = () => {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -16,31 +24,51 @@ const AnimatedSphere = () => {
   return (
     <mesh ref={meshRef} scale={2}>
       <sphereGeometry args={[1, 100, 200]} />
-      <meshPhongMaterial
-        color="#00BFFF"
-        transparent
-        opacity={0.8}
-      />
+      <meshPhongMaterial color="#00BFFF" transparent opacity={0.8} />
     </mesh>
   );
 };
 
 const About = () => {
   const skills = [
-    { name: 'Problem Solving', level: 95 },
-    { name: 'Team Leadership', level: 88 },
-    { name: 'Innovation', level: 92 },
-    { name: 'Communication', level: 90 },
-    { name: 'Adaptability', level: 94 }
+    { name: "Problem Solving", level: 88 },
+    { name: "Team Leadership", level: 95 },
+    { name: "Innovation", level: 90 },
+    { name: "Communication", level: 90 },
+    { name: "Adaptability", level: 94 },
   ];
 
   const interests = [
-    { icon: '🧠', name: 'AI Research', description: 'Exploring cutting-edge ML algorithms' },
-    { icon: '🚀', name: 'Space Tech', description: 'Following aerospace innovations' },
-    { icon: '📚', name: 'Tech Writing', description: 'Sharing knowledge through articles' },
-    { icon: '🌱', name: 'Mentoring', description: 'Guiding next-gen developers' },
-    { icon: '🎮', name: 'Game Dev', description: 'Creating interactive experiences' },
-    { icon: '🎨', name: 'UI/UX Design', description: 'Crafting beautiful interfaces' }
+    {
+      icon: <Brain className="text-blue-500" />,
+      name: "AI Research",
+      description: "Exploring cutting-edge ML algorithms",
+    },
+    {
+      icon: <Rocket className="text-blue-500" />,
+      name: "Home Tech",
+      description: "Following Homescience innovations",
+    },
+    {
+      icon: <BookOpen className="text-blue-500" />,
+      name: "Tech Writing",
+      description: "Sharing knowledge through articles and posts",
+    },
+    {
+      icon: <Users className="text-blue-500" />,
+      name: "Reading",
+      description: "Read fiction and nonfiction , Sometimes Tech !",
+    },
+    {
+      icon: <Gamepad2 className="text-blue-500" />,
+      name: "Hiking and Yoga",
+      description: "Despite of tech , Be positive pro",
+    },
+    {
+      icon: <Palette className="text-blue-500" />,
+      name: "UI/UX Design",
+      description: "Crafting beautiful interfaces",
+    },
   ];
 
   return (
@@ -57,25 +85,42 @@ const About = () => {
             About Me
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Passionate about creating intelligent solutions that bridge the gap between technology and human needs
+            Passionate about creating intelligent solutions that bridge the gap
+            between technology and human needs
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* 3D Visual */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-16">
+          {/* Full Image Section */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative h-96 rounded-2xl overflow-hidden"
+            className="relative min-h-full rounded-2xl overflow-hidden shadow-2xl flex"
           >
-            <Canvas>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} />
-              <AnimatedSphere />
-            </Canvas>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            {/* Background 3D Sphere (Optional - can be removed if you want only image) */}
+            <div className="absolute inset-0 opacity-20">
+              <Canvas>
+                <ambientLight intensity={0.5} />
+                <pointLight position={[10, 10, 10]} />
+                <AnimatedSphere />
+              </Canvas>
+            </div>
+            
+            {/* Full Coverage Image */}
+            <div className="absolute inset-0 z-10">
+              <img
+                src="https://imgs.search.brave.com/9li4GtRqqZNsT3_QKuzOHGq_M0Jhi3O1wVt7CRqvYF8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9h/L2E5L1J5YW5fR29z/bGluZ18oMzYyMDEy/NTY3MDUpXyhjcm9w/cGVkKS5qcGc"
+                alt="Your Name"
+                className="w-full h-full object-cover"
+              />
+              {/* Overlay for better text readability if needed */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            </div>
+            
+            {/* Optional: Animated border/glow effect */}
+            <div className="absolute inset-0 rounded-2xl border-2 border-[#00BFFF]/50 animate-pulse"></div>
           </motion.div>
 
           {/* Content */}
@@ -84,17 +129,33 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-6 flex flex-col justify-center"
           >
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                I'm a passionate AI/ML Engineer and Full Stack Developer with over 2.5 years of experience at a leading MNC. My journey in technology began with a fascination for artificial intelligence and has evolved into a comprehensive skill set spanning modern web development and machine learning.
+                I'm a passionate AI/ML Engineer and Full Stack Developer with
+                over 2.5 years of experience at a leading MNC. My journey in
+                technology began with a fascination for artificial intelligence
+                and has evolved into a comprehensive skill set spanning modern
+                web development and machine learning.
               </p>
               <p>
-                I specialize in creating intelligent, scalable applications that bridge the gap between cutting-edge AI research and practical business solutions. My expertise lies in developing end-to-end solutions that leverage the latest in AI/ML technologies, from natural language processing to computer vision, combined with robust full-stack development practices.
+                I'm passionate about learning how to build smart, scalable
+                applications that connect AI technologies with real-world use
+                cases. I'm currently exploring how natural language processing,
+                computer vision, and machine learning can be combined with
+                full-stack development to create practical, impactful solutions.
+                My goal is to bridge the gap between advanced AI concepts and
+                everyday applications as I grow my skills.
               </p>
               <p>
-                When I'm not coding, I contribute to open-source projects and mentor aspiring developers in the AI/ML community. I'm constantly exploring emerging technologies and frameworks, ensuring that every project incorporates the most effective and innovative approaches.
+                When I'm not deep in code, you'll probably find me in the
+                mountains or chilling at a campsite with a 300-page biography in
+                one hand and an oversized bottle of coffee in the other. I'm
+                always exploring new tech and frameworks — because staying
+                curious (and caffeinated) is my secret sauce for keeping every
+                project fresh, innovative, and a little bit smarter than the
+                last.
               </p>
             </div>
 
@@ -107,7 +168,8 @@ const About = () => {
               className="border-l-4 border-[#00BFFF] pl-6 py-4 bg-gray-900/50 rounded-r-lg"
             >
               <p className="text-[#00BFFF] text-lg italic">
-                "Innovation distinguishes between a leader and a follower. I choose to lead through technology."
+                "I believe innovation drives humanity forward, solving problems
+                for a better tomorrow."
               </p>
             </motion.blockquote>
           </motion.div>
@@ -163,7 +225,9 @@ const About = () => {
                     />
                   </svg>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-[#00BFFF] font-bold text-lg">{skill.level}%</span>
+                    <span className="text-[#00BFFF] font-bold text-lg">
+                      {skill.level}%
+                    </span>
                   </div>
                 </div>
                 <h4 className="text-white font-semibold">{skill.name}</h4>

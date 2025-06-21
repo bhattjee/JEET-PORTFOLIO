@@ -78,7 +78,7 @@ const Hero = () => {
             textShadow: '0 0 30px rgba(0, 191, 255, 0.3)'
           }}
         >
-          ALEX CHEN
+          JEET BHATT
         </motion.h1>
 
         <motion.div
@@ -88,17 +88,17 @@ const Hero = () => {
           className="space-y-4 mb-12"
         >
           <h2 className="text-2xl md:text-4xl font-light text-[#00BFFF] text-glow">
-            AI/ML Engineer & Full Stack Developer
+            AI/ML Applications & Full Stack Developer
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Crafting intelligent solutions with cutting-edge technology
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-gray-400">
-            <span className="text-sm">📍 2.5+ years at Fortune 500 MNC</span>
+            <span className="text-sm">2.5+ years at Fortune 500 MNC</span>
             <span className="hidden md:block">•</span>
-            <span className="text-sm">🚀 AI-Powered Applications Specialist</span>
+            <span className="text-sm">AI-Powered Applications Specialist</span>
             <span className="hidden md:block">•</span>
-            <span className="text-sm">💡 Innovation-Driven Developer</span>
+            <span className="text-sm">Innovation-Driven Developer</span>
           </div>
         </motion.div>
 
