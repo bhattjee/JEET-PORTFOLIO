@@ -402,7 +402,7 @@ const Connect = () => {
                 </motion.button>
               </a>
               <a
-                href="src/pages/CV-JEET23.pdf" // Replace with your actual PDF file path
+                href="/CV-JEET23.pdf" // Replace with your actual PDF file path
                 target="_blank"
                 rel="noopener noreferrer"
               >
