@@ -402,7 +402,7 @@ const Connect = () => {
                 </motion.button>
               </a>
               <a
-                href="/CV-JEET23.pdf" // Replace with your actual PDF file path
+                href="https://www.dropbox.com/scl/fi/p5p1lj6u6znbp2qd6kfnr/CV-JEET23.pdf?rlkey=18fh9mgcv0hu4950ij9rf07af&st=77cl6hbn&dl=0" // Replace with your actual PDF file path
                 target="_blank"
                 rel="noopener noreferrer"
               >
