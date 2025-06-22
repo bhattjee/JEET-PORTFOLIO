@@ -111,12 +111,12 @@ const About = () => {
             {/* Full Coverage Image */}
             <div className="absolute inset-0 z-10">
               <a
-                href="src/pages/Profile.jpg"
+                href="https://i.postimg.cc/0NMXJfqc/Profile.jpg"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-                  src="src/pages/Profile.jpg"
+                  src="https://i.postimg.cc/0NMXJfqc/Profile.jpg"
                   alt="JEET BHATT"
                   className="w-full h-full object-cover"
                 />
