@@ -52,7 +52,7 @@ const Projects = () => {
         "Improved user satisfaction through personalized culinary recommendations and increased engagement for food-tech platforms",
       color: "#00BFFF",
       gradient: "from-blue-500 to-cyan-400",
-      demoUrl: "https://ai-pizza-generator.vercel.app",
+      demoUrl: "https://pizzacrust.onrender.com/",
     },
     {
       id: 3,
