@@ -52,6 +52,7 @@ const Projects = () => {
         "Improved user satisfaction through personalized culinary recommendations and increased engagement for food-tech platforms",
       color: "#00BFFF",
       gradient: "from-blue-500 to-cyan-400",
+      demoUrl: "https://ai-pizza-generator.vercel.app",
     },
     {
       id: 3,
@@ -246,16 +247,10 @@ const Projects = () => {
                 {/* Action Buttons */}
                 <div className="flex space-x-4">
                   <motion.button
-                    className="flex-1 py-3 bg-[#00BFFF] text-black font-semibold rounded-lg hover:bg-white transition-all duration-300 glow-blue"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    View Details
-                  </motion.button>
-                  <motion.button
                     className="flex-1 py-3 border-2 border-[#00BFFF] text-[#00BFFF] font-semibold rounded-lg hover:bg-[#00BFFF] hover:text-black transition-all duration-300"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => window.open(project.demoUrl, "_blank")}
                   >
                     Live Demo
                   </motion.button>
