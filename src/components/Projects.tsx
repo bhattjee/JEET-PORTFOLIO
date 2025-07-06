@@ -117,7 +117,8 @@ const Projects = () => {
   ],
   impact: "Enabled non-technical users to extract data from over 500+ sites with zero coding knowledge",
   color: "#00BFFF",
-  gradient: "from-blue-500 to-cyan-400"
+  gradient: "from-blue-500 to-cyan-400",
+  demoUrl: "https://scrapeeeer-fbik0icrg-jeet-vercels-projects.vercel.app",
 },
   ];
 
