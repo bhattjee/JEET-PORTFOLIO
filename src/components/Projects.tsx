@@ -94,6 +94,31 @@ const Projects = () => {
       color: "#00BFFF",
       gradient: "from-blue-500 to-cyan-400",
     },
+    {
+  id: 5,
+  title: "Smart Web Scraping Platform with Real-Time Data Extraction",
+  description:
+    "A responsive and AI-assisted web scraping platform that allows users to extract structured data from websites with ease. Built with modern technologies and secured APIs, the platform is user-friendly and optimized for performance.",
+  techStack: [
+    "React.js",
+    "Flask",
+    "Python",
+    "BeautifulSoup",
+    "Render",
+    "Vercel",
+    "Tailwind CSS"
+  ],
+  features: [
+    "Live web scraping interface",
+    "URL validation and result preview",
+    "Rate limiting & protection",
+    "Clean JSON response for extracted data",
+    "Minimalist and responsive UI"
+  ],
+  impact: "Enabled non-technical users to extract data from over 500+ sites with zero coding knowledge",
+  color: "#00BFFF",
+  gradient: "from-blue-500 to-cyan-400"
+},
   ];
 
   const containerVariants = {
