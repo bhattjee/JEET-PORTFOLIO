@@ -70,6 +70,7 @@ const Projects = () => {
         "Enabled low-cost, on-site traffic monitoring with efficient vehicle tracking",
       color: "#00BFFF",
       gradient: "from-blue-500 to-cyan-400",
+      demoUrl: "https://github.com/bhattjee/VEHICLE-DETECTION",
     },
     {
       id: 4,
