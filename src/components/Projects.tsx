@@ -94,6 +94,7 @@ const Projects = () => {
       impact: "Reduced customer service workload by 60%",
       color: "#00BFFF",
       gradient: "from-blue-500 to-cyan-400",
+      demoUrl: "https://ai-chat-interface-jeet-vercels-projects.vercel.app",
     },
     {
   id: 5,
