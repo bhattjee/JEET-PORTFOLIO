@@ -27,6 +27,7 @@ const Projects = () => {
         "Achieved a 97/100 score as a bachelor thesis for its innovation, accuracy, and real-world applicability",
       color: "#00BFFF",
       gradient: "from-blue-500 to-cyan-400",
+      demoUrl: "https://grithub.vercel.app",
     },
     {
       id: 2,
