@@ -94,7 +94,7 @@ const Hero = () => {
             Crafting intelligent solutions with cutting-edge technology
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-gray-400">
-            <span className="text-sm">2.5+ years at Fortune 500 MNC</span>
+            <span className="text-sm">2.5+ years at leading MNC</span>
             <span className="hidden md:block">•</span>
             <span className="text-sm">AI-Powered Applications Specialist</span>
             <span className="hidden md:block">•</span>
