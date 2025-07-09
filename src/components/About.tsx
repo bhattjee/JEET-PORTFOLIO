@@ -62,7 +62,7 @@ const About = () => {
     {
       icon: <Gamepad2 className="text-blue-500" />,
       name: "Hiking and Yoga",
-      description: "Despite of tech , Be positive pro",
+      description: "Offline mode: hiking trails & yoga flows",
     },
     {
       icon: <Palette className="text-blue-500" />,
