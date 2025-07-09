@@ -15,7 +15,7 @@ const Connect = () => {
     },
     {
       type: "phone",
-      value: "(+91)832055**89",
+      value: "Available upon request",
       icon: "",
       color: "#4ECDC4",
       gradient: "from-teal-500 to-green-400",
@@ -402,7 +402,7 @@ const Connect = () => {
                 </motion.button>
               </a>
               <a
-                href="https://www.dropbox.com/scl/fi/p5p1lj6u6znbp2qd6kfnr/CV-JEET23.pdf?rlkey=18fh9mgcv0hu4950ij9rf07af&st=77cl6hbn&dl=0" // Replace with your actual PDF file path
+                href="https://drive.google.com/file/d/14Y5lJ8vCWeMf-FzPwCJRgGRg-dKqFyod/view?usp=sharing" // Replace with your actual PDF file path
                 target="_blank"
                 rel="noopener noreferrer"
               >
