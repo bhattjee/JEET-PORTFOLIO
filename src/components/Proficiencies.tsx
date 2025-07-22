@@ -260,6 +260,18 @@ const Proficiencies = () => {
   image: 'https://i.postimg.cc/7LNLmXFK/Certi-8.png'
 },
 {
+  "id": "GreatLearning-ApplicationsAI",
+  "title": "Applications of AI",
+  "issuer": "Great Learning",
+  "date": "2025",
+  "level": "Beginner",
+  "description": "Successfully completed an introductory course covering real-world applications of Artificial Intelligence.",
+  "skills": ["Artificial Intelligence", "AI Applications", "Machine Learning Basics", "AI in Industry"],
+  "credentialId": "Verify with the given link in certificate",
+  "fullDescription": "This course introduces the practical use cases and implementations of Artificial Intelligence across various sectors including healthcare, finance, retail, and education. Learners gain insight into how AI technologies are integrated into business operations, and foundational knowledge of how AI systems support data-driven decision-making.",
+  "image": "https://i.ibb.co/M5nHrbFN/Certificate-GL.png"
+},
+{
   id: 'Elements-AI-Helsinki-Google',
   title: 'Elements of AI',
   issuer: 'University of Helsinki & Google',
