@@ -402,7 +402,7 @@ const Connect = () => {
                 </motion.button>
               </a>
               <a
-                href="https://drive.google.com/file/d/1Fv7sF9d1WUlIoig-bLZ9VqLqV_bOYf5D/view?usp=sharing" // Replace with your actual PDF file path
+                href="https://drive.google.com/file/d/1W9N6Qf0gp8zGtBAknZ8WlbfOYJzU8Cy0/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >
