@@ -87,9 +87,9 @@ const WorkExperience = () => {
   const companiesWorkedWith = [
     {
       name: "Samb Infotech GMBH",
-      logo: "https://i.postimg.cc/ydXjq9H8/SMAC-Softwares-Gmb-H-Logo-white-retina.png",
+      logo: "https://i.postimg.cc/mkFPBDmn/SAMB-Info-logo.png",
       description: "Leading Tech Solutions",
-      link: "https://smacsoftwares.com/",
+      link: "https://sambinfo.in/",
     },
   ];
 
