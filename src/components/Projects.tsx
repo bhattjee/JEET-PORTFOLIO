@@ -145,8 +145,8 @@ features: [
 "Fully responsive and minimalist UI"
 ],
 impact: "Provided an ad-free and clean stotra experience with integrated Spotify redirection, enabling seamless access to authentic content for over 1K+ monthly users",
-color: "#FF8C00",
-gradient: "from-orange-500 to-amber-400",
+color: "#00BFFF",
+gradient: "from-blue-500 to-cyan-400",
 demoUrl: "https://arthved.vercel.app",
 },
   ];
