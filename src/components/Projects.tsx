@@ -123,6 +123,32 @@ const Projects = () => {
   gradient: "from-blue-500 to-cyan-400",
   demoUrl: "https://scrapeeeer.vercel.app",
 },
+    {
+id: 6,
+title: "Arthved — Stotra Gallery for Sanatan Dharma",
+description:
+"An ad-free online gallery featuring prominent stotras from Sanatan Dharma, including dedicated sections for Bhagwan Shiv and Hanuman Ji. Each stotra comes with Hindi and English translations, and the platform is completely free with an option to support via Buy Me a Coffee.",
+techStack: [
+"React.js",
+"Next.js",
+"Tailwind CSS",
+"Node.js",
+"Spotify API",
+"Vercel",
+"Git"
+],
+features: [
+"Clean, ad-free stotra browsing experience",
+"Hindi and English translations for each mantra",
+"Direct Spotify redirection for audio/listening",
+"Free access with optional support mechanism",
+"Fully responsive and minimalist UI"
+],
+impact: "Provided an ad-free and clean stotra experience with integrated Spotify redirection, enabling seamless access to authentic content for over 1K+ monthly users",
+color: "#FF8C00",
+gradient: "from-orange-500 to-amber-400",
+demoUrl: "https://arthved.vercel.app",
+},
   ];
 
   const containerVariants = {
