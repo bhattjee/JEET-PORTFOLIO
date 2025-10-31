@@ -8,7 +8,7 @@ const WorkExperience = () => {
   const experiences = [
     {
       position: "Trainee AI Developer",
-      company: "Samb Infotech GMBH",
+      company: "Samb Infotech LLP",
       duration: "2+ Years",
       location: "Bhavnagar , Gujarat , India",
       Headquater: "Sttutgart , Germany",
@@ -39,7 +39,7 @@ const WorkExperience = () => {
       achievements: [
         "Sucessfully created multimodular application in 24HR",
         "Led successful migration of legacy systems.",
-        "Implemented testing modules reducing deployment time.",
+        "Implemented testing modules reducing debugging time.",
         "Worked with core technical teams on multicultural environment",
         "All types of testing on the metting room application",
       ],
