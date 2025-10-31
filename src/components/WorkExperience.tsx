@@ -10,14 +10,14 @@ const WorkExperience = () => {
       position: "Trainee AI Developer",
       company: "Samb Infotech GMBH",
       duration: "2+ Years",
-      location: "Bhavnagar , Gujrat , India",
+      location: "Bhavnagar , Gujarat , India",
       Headquater: "Sttutgart , Germany",
       type: "Germany Based MNC",
       responsibilities: [
         "Tested structured organization website on design and functionality ",
         "Implemented AI/ML models for business solutions, improving efficiency by 40%",
         "Collaborated with cross-functional teams on enterprise projects",
-        "Create chatbots to integret in organization website",
+        "Build intuitive dashboards for improved user engagement.",
         "Developed automated systems for simplifying task",
       ],
       technologies: [
@@ -83,7 +83,7 @@ const WorkExperience = () => {
   // Companies worked with - you can replace with your actual companies
   const companiesWorkedWith = [
     {
-      name: "Samb Infotech GMBH",
+      name: "Samb Info LLP",
       logo: "https://i.postimg.cc/mkFPBDmn/SAMB-Info-logo.png",
       description: "Leading Tech Solutions",
       link: "https://sambinfo.in/",
