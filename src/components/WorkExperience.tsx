@@ -8,7 +8,7 @@ const WorkExperience = () => {
   const experiences = [
     {
       position: "Trainee AI Developer",
-      company: "Samb Infotech LLP",
+      company: "Samb Info LLP",
       duration: "2+ Years",
       location: "Bhavnagar , Gujarat , India",
       Headquater: "Sttutgart , Germany",
