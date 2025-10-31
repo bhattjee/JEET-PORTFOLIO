@@ -7,9 +7,9 @@ const WorkExperience = () => {
 
   const experiences = [
     {
-      position: "Junior Developer",
+      position: "Trainee AI Developer",
       company: "Samb Infotech GMBH",
-      duration: "2.5+ Years",
+      duration: "2+ Years",
       location: "Bhavnagar , Gujrat , India",
       Headquater: "Sttutgart , Germany",
       type: "Germany Based MNC",
@@ -35,23 +35,20 @@ const WorkExperience = () => {
         "Talwind CSS",
         "MongoDB",
         "PostgreSQL",
-        "Oracel",
-        "Docker",
-        "Kubernetes",
       ],
       achievements: [
         "Sucessfully created multimodular application in 24HR",
         "Led successful migration of legacy systems.",
-        "Implemented CI/CD pipelines reducing deployment time.",
-        "Worked with 3 technical papers on AI/ML applications",
+        "Implemented testing modules reducing deployment time.",
+        "Worked with core technical teams on multicultural environment",
         "All types of testing on the metting room application",
       ],
     },
   ];
 
   const milestones = [
-    { year: "2022", event: "Started career as a Junior Developer" },
-    { year: "2022", event: "Completed initial website testing project" },
+    { year: "2022", event: "Started career as a Intern" },
+    { year: "2022", event: "Completed initial programming concepts" },
     {
       year: "2023",
       event: "Led AI-based pizza delivery system as first major project",
