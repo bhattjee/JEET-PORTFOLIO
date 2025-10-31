@@ -28,12 +28,12 @@ const Proficiencies = () => {
         {
           name: "Next.js",
           description: "Full-stack React framework",
-          level: 70,
+          level: 60,
         },
         {
           name: "Vue.js",
           description: "Progressive JavaScript framework",
-          level: 75,
+          level: 50,
         },
         {
           name: "Angular",
@@ -43,7 +43,7 @@ const Proficiencies = () => {
         {
           name: "Svelte",
           description: "Compile-time optimized framework",
-          level: 60,
+          level: 40,
         },
         { name: "TypeScript", description: "Type-safe JavaScript", level: 65 },
         {
@@ -77,18 +77,18 @@ const Proficiencies = () => {
         {
           name: "Express.js",
           description: "Minimal Node.js framework",
-          level: 60,
+          level: 50,
         },
         {
           name: "Flask",
           description: "Lightweight Python framework",
           level: 82,
         },
-        { name: "GraphQL", description: "Query language for APIs", level: 58 },
+        { name: "GraphQL", description: "Query language for APIs", level: 30 },
         {
           name: "REST APIs",
           description: "Architectural style for web services",
-          level: 72,
+          level: 40,
         },
       ],
     },
@@ -104,12 +104,12 @@ const Proficiencies = () => {
         {
           name: "PyTorch",
           description: "Dynamic neural network framework",
-          level: 78,
+          level: 30,
         },
         {
           name: "Scikit-learn",
           description: "Machine learning library",
-          level: 75,
+          level: 30,
         },
         {
           name: "OpenAI GPT",
@@ -120,10 +120,10 @@ const Proficiencies = () => {
         {
           name: "LangChain",
           description: "LLM application framework",
-          level: 63,
+          level: 40,
         },
         { name: "Computer Vision", description: "OpenCV, YOLO", level: 80 },
-        { name: "NLP", description: "NLTK, spaCy", level: 55 },
+        { name: "NLP", description: "NLTK, spaCy", level: 40 },
       ],
     },
     databases: {
@@ -150,10 +150,10 @@ const Proficiencies = () => {
         {
           name: "Supabase",
           description: "Open-source Firebase alternative",
-          level: 63,
+          level: 40,
         },
-        { name: "Pinecone", description: "Vector database for AI", level: 48 },
-        { name: "Neo4j", description: "Graph database", level: 75 },
+        { name: "Pinecone", description: "Vector database for AI", level: 20 },
+        { name: "Neo4j", description: "Graph database", level: 40 },
       ],
     },
   };
