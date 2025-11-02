@@ -43,7 +43,7 @@ const Proficiencies = () => {
         {
           name: "Svelte",
           description: "Compile-time optimized framework",
-          level: 40,
+          level: 30,
         },
         { name: "TypeScript", description: "Type-safe JavaScript", level: 65 },
         {
@@ -75,9 +75,9 @@ const Proficiencies = () => {
         },
         { name: "FastAPI", description: "Modern API framework", level: 78 },
         {
-          name: "Express.js",
+          name: "PHP",
           description: "Minimal Node.js framework",
-          level: 50,
+          level: 70,
         },
         {
           name: "Flask",
