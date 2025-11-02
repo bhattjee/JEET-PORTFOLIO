@@ -74,11 +74,12 @@ const Proficiencies = () => {
           level: 85,
         },
         { name: "FastAPI", description: "Modern API framework", level: 78 },
-        {
-          name: "PHP",
-          description: "Minimal Node.js framework",
-          level: 70,
-        },
+       {
+  "name": "PHP",
+  "description": "Server-side scripting language designed for web development",
+  "level": 70
+},
+
         {
           name: "Flask",
           description: "Lightweight Python framework",
