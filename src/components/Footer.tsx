@@ -100,10 +100,10 @@ const Footer = () => {
           className="text-center"
         >
           <p className="text-gray-500 text-sm mb-2">
-            © {currentYear} JEET BHATT. All rights reserved.
+            © {currentYear} JEET BHATT. Personal Portfolio.
           </p>
           <p className="text-gray-600 text-xs">
-            Crafted with ❤️ using React, Three.js, and a lot of ☕
+            Crafted with React, Three.js, and a lot of ☕
           </p>
         </motion.div>
 
