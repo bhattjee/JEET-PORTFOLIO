@@ -62,7 +62,7 @@ const About = () => {
     {
       icon: <Gamepad2 className="text-blue-500" />,
       name: "Hiking and Yoga",
-      description: "Despite of tech , Be positive pro",
+      description: "Offline mode: hiking trails & yoga flows",
     },
     {
       icon: <Palette className="text-blue-500" />,
@@ -139,16 +139,15 @@ const About = () => {
           >
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                I'm a passionate AI/ML Engineer and Full Stack Developer with
-                over 2.5 years of experience at a leading MNC. My journey in
+                I am a passionate Full Stack Developer with over 2 years of experience at a leading MNC, 
+                specializing in AI/ML integration. My journey in
                 technology began with a fascination for artificial intelligence
                 and has evolved into a comprehensive skill set spanning modern
                 web development and machine learning.
               </p>
               <p>
-                I'm passionate about learning how to build smart, scalable
-                applications that connect AI technologies with real-world use
-                cases. I'm currently exploring how natural language processing,
+                What excites me is turning AI potential into reality by building scalable applications for tangible, 
+                real-world impact. I'm currently exploring how natural language processing,
                 computer vision, and machine learning can be combined with
                 full-stack development to create practical, impactful solutions.
                 My goal is to bridge the gap between advanced AI concepts and

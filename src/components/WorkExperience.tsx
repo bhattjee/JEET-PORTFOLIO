@@ -7,17 +7,17 @@ const WorkExperience = () => {
 
   const experiences = [
     {
-      position: "Junior Developer",
-      company: "Samb Infotech GMBH",
-      duration: "2.5+ Years",
-      location: "Bhavnagar , Gujrat , India",
+      position: "Trainee AI Developer",
+      company: "Samb Info LLP",
+      duration: "2+ Years",
+      location: "Bhavnagar , Gujarat , India",
       Headquater: "Sttutgart , Germany",
       type: "Germany Based MNC",
       responsibilities: [
         "Tested structured organization website on design and functionality ",
         "Implemented AI/ML models for business solutions, improving efficiency by 40%",
         "Collaborated with cross-functional teams on enterprise projects",
-        "Create chatbots to integret in organization website",
+        "Build intuitive dashboards for improved user engagement.",
         "Developed automated systems for simplifying task",
       ],
       technologies: [
@@ -35,23 +35,20 @@ const WorkExperience = () => {
         "Talwind CSS",
         "MongoDB",
         "PostgreSQL",
-        "Oracel",
-        "Docker",
-        "Kubernetes",
       ],
       achievements: [
         "Sucessfully created multimodular application in 24HR",
         "Led successful migration of legacy systems.",
-        "Implemented CI/CD pipelines reducing deployment time.",
-        "Worked with 3 technical papers on AI/ML applications",
+        "Implemented testing modules reducing debugging time.",
+        "Worked with core technical teams on multicultural environment",
         "All types of testing on the metting room application",
       ],
     },
   ];
 
   const milestones = [
-    { year: "2022", event: "Started career as a Junior Developer" },
-    { year: "2022", event: "Completed initial website testing project" },
+    { year: "2022", event: "Started career as a Intern" },
+    { year: "2022", event: "Completed initial programming concepts" },
     {
       year: "2023",
       event: "Led AI-based pizza delivery system as first major project",
@@ -86,10 +83,10 @@ const WorkExperience = () => {
   // Companies worked with - you can replace with your actual companies
   const companiesWorkedWith = [
     {
-      name: "Samb Infotech GMBH",
-      logo: "https://i.postimg.cc/ydXjq9H8/SMAC-Softwares-Gmb-H-Logo-white-retina.png",
+      name: "Samb Info LLP",
+      logo: "https://i.postimg.cc/mkFPBDmn/SAMB-Info-logo.png",
       description: "Leading Tech Solutions",
-      link: "https://smacsoftwares.com/",
+      link: "https://sambinfo.in/",
     },
   ];
 

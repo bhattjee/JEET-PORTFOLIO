@@ -1,73 +1,217 @@
-# Welcome to your Lovable project
+# 🚀 Jeet Bhatt - Portfolio Website
 
-## Project info
+**AI/ML Applications & Full Stack Developer**  
+*Crafting intelligent solutions with cutting-edge technology*
 
-**URL**: https://lovable.dev/projects/34df87ae-9117-40cf-9216-deca26a4b70d
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)]([your-portfolio-url](https://jeet-portfolio-61sl.vercel.app/))
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)]([your-linkedin-url](https://www.linkedin.com/in/jeet-bhatt-403b84267/))
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](/)
+[![Available](https://img.shields.io/badge/Status-Available%20for%20Hire-success)](mailto:jeetbhatt1323@gmail.com)
 
-## How can I edit this code?
+## 👨‍💻 About Me
 
-There are several ways of editing your application.
+**2.5+ years** of experience at leading MNC as an **AI-Powered Applications Specialist** and **Innovation-Driven Developer**. Passionate about building intelligent solutions that bridge the gap between cutting-edge AI/ML technology and practical business applications.
 
-**Use Lovable**
+**Currently pursuing Master's in AI/ML** with a focus on hardware integration, building upon a solid foundation of a **Bachelor's degree in Computer Applications (BCA)**.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/34df87ae-9117-40cf-9216-deca26a4b70d) and start prompting.
+## 🎯 Professional Highlights
 
-Changes made via Lovable will be committed automatically to this repo.
+- 🤖 **AI/ML Specialist** with 2.5+ years at leading MNC
+- 🏆 **97/100 Bachelor's Thesis Score** for AI-based workout generator
+- 📈 **40% Efficiency Improvement** through AI/ML model implementations
+- 💬 **60% Reduction** in customer service workload via intelligent chat systems
+- 🌐 **500+ Websites** enabled for data extraction through smart scraping platform
 
-**Use your preferred IDE**
+## 🛠️ Technical Proficiencies
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### **Frontend Technologies**
+- **React.js** (95%) - Modern component-based library
+- **Tailwind CSS** (85%) - Utility-first CSS framework  
+- **Vue.js** (75%) - Progressive JavaScript framework
+- **Next.js** (70%) - Full-stack React framework
+- **TypeScript** (65%) - Type-safe JavaScript
+- **Svelte** (60%) - Compile-time optimized framework
+- **Angular** (50%) - Enterprise-level framework
+- **Three.js** (48%) - 3D graphics library
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### **Backend & AI/ML Technologies**
+- **Python** - Core programming language
+- **Node.js** - Server-side JavaScript runtime
+- **Django** - High-level Python web framework
+- **Flask** - Lightweight Python web framework
+- **TensorFlow** - Machine learning framework
+- **PyTorch** - Deep learning framework
+- **OpenAI API** - AI model integration
+- **Scikit-learn** - Machine learning library
+- **OpenCV** - Computer vision library
+- **LangChain** - LLM application framework
 
-Follow these steps:
+### **Databases & DevOps**
+- **MongoDB** - Document-based NoSQL database
+- **PostgreSQL** - Advanced relational database
+- **Oracle** - Enterprise database solution
+- **Docker** - Containerization platform
+- **Kubernetes** - Container orchestration
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🌟 Featured Projects
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 1. **GRITHUB - AI-Based Workout and Diet Plan Generator**
+*Advanced AI system for personalized fitness and nutrition*
 
-# Step 3: Install the necessary dependencies.
-npm i
+**🏆 Achievement**: 97/100 Bachelor's Thesis Score
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+**Tech Stack**: Python, Machine Learning, Nutrition Algorithms, Fitness Analytics
+- Customized fitness and meal plans based on physiological data
+- AI-driven recommendations with user-specific personalization
+- Interactive goal setting and progress tracking
+- Automated plan adjustments based on user feedback
 
-**Edit a file directly in GitHub**
+### 2. **AI-Powered Pizza Suggestion and Generator**
+*Intelligent food-tech solution with personalized culinary recommendations*
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+**Tech Stack**: Python, Scikit-learn, Flask, MongoDB, TensorFlow, DeepL API
+- AI-driven flavor and ingredient pairing algorithms
+- Dynamic recipe generation with nutritional insights
+- Personalized suggestions based on dietary preferences
+- Interactive frontend for real-time customization
 
-**Use GitHub Codespaces**
+### 3. **Real-Time Vehicle Detection and Speed Monitoring**
+*Edge computing solution for traffic monitoring*
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+**Tech Stack**: Python, OpenCV, Raspberry Pi, YOLOv5, NumPy
+- Real-time vehicle detection with bounding box tracking
+- Speed estimation using advanced computer vision
+- Lightweight deployment for edge computing
+- Live video processing and analytics
 
-## What technologies are used for this project?
+### 4. **AI-Powered Intelligent Chat Interface**
+*Context-aware conversational AI with NLP capabilities*
 
-This project is built with:
+**📈 Impact**: 60% reduction in customer service workload
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**Tech Stack**: Python, LangChain, OpenAI API, Vue.js, MongoDB, Mistral API
+- Context-aware conversations with memory
+- Advanced intent recognition and response generation
+- Knowledge base integration for accurate responses
+- Multi-topic dialogue capabilities
 
-## How can I deploy this project?
+### 5. **Smart Web Scraping Platform (SCRAPEEEER)**
+*No-code data extraction platform*
 
-Simply open [Lovable](https://lovable.dev/projects/34df87ae-9117-40cf-9216-deca26a4b70d) and click on Share -> Publish.
+**📈 Impact**: 500+ websites enabled for data extraction
 
-## Can I connect a custom domain to my Lovable project?
+**Tech Stack**: React.js, Flask, Python, BeautifulSoup, Tailwind CSS
+- User-friendly interface requiring zero coding knowledge
+- Live web scraping with URL validation
+- Rate limiting and security protection
+- Clean JSON response format
 
-Yes, you can!
+## 💼 Professional Experience
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### **Samb Infotech GMBH** - *AI/ML Applications Developer*
+*2022 - Present*
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+**Key Responsibilities:**
+- 🧪 Tested structured organization websites on design and functionality
+- 🤖 Implemented AI/ML models for business solutions, improving efficiency by 40%
+- 👥 Collaborated with cross-functional teams on enterprise projects
+- 💬 Created intelligent chatbots for organization website integration
+- ⚙️ Developed automated systems for task simplification
+
+**Technologies Used:**
+React, Next.js, TypeScript, Node.js, Python, Vue.js, Angular, Django, TensorFlow, PyTorch, OpenAI API, Tailwind CSS, MongoDB, PostgreSQL, Oracle, Docker, Kubernetes
+
+## 🎓 Professional Certifications
+
+### **AI & Machine Learning**
+- **Elements of AI** - University of Helsinki & Google (Advanced)
+- **Applications of AI** - Great Learning (2025)
+- **Career Essentials in Generative AI** - Microsoft and LinkedIn
+- **Ethics in the Age of Generative AI** - LinkedIn Learning
+- **Generative AI: Search Evolution** - LinkedIn Learning
+- **Introduction to Artificial Intelligence** - LinkedIn Learning
+
+### **Programming & Communication**
+- **Python (Basic)** - HackerRank
+- **Communication Foundations** - LinkedIn Learning
+
+## 📊 Core Competencies
+
+| Skill | Proficiency |
+|-------|-------------|
+| **Problem Solving** | 88% |
+| **Team Leadership** | 95% |
+| **Innovation** | 90% |
+| **Communication** | 90% |
+| **Adaptability** | 94% |
+
+## 🎯 Interests & Passions
+
+- 🔬 **AI Research** - Exploring cutting-edge ML algorithms
+- 🏠 **Home Tech** - Following home science innovations
+- ✍️ **Tech Writing** - Sharing knowledge through articles and posts
+- 📚 **Reading** - Fiction, nonfiction, and tech literature
+- 🥾 **Hiking and Yoga** - Offline mode for mental clarity
+- 🎨 **UI/UX Design** - Crafting beautiful user interfaces
+
+## 🚀 Career Timeline
+
+- **2025**: Master's studies in AI/ML with hardware integration focus
+- **2025**: Bachelor's degree in Computer Applications (BCA) completed
+- **2025**: Completed bachelor's thesis on AI-powered workout generator (97/100)
+- **2024**: Strengthened full-stack development across multiple frameworks
+- **2024**: Developed autonomous systems using Raspberry Pi
+- **2023**: Worked with Python computer vision libraries on live applications
+- **2023**: Led AI-based pizza delivery system as first major project
+- **2022**: Completed initial website testing project
+- **2022**: Started career as Junior Developer
+
+## 🌐 Website Features
+
+### **Interactive Portfolio Sections**
+- 🏠 **Home** - Professional introduction and overview
+- 👨‍💻 **About** - Detailed background and experience
+- 🛠️ **Skills** - Technical proficiencies with progress bars
+- 🚀 **Projects** - Featured work with live demos
+- 🎓 **Certifications** - Professional credentials
+- 💼 **Experience** - Career timeline and achievements
+- 📞 **Contact** - Connection opportunities
+
+### **Modern Design Elements**
+- Responsive design for all devices
+- Interactive skill progress bars
+- Project showcase with live demos
+- Professional certification display
+- Career timeline visualization
+- Contact form integration
+
+### **Performance Features**
+- Fast loading times
+- SEO optimized
+- Mobile-first approach
+- Cross-browser compatibility
+- Accessible design principles
+
+## 🤝 Let's Connect
+
+**💼 Currently Available for New Opportunities**
+
+I'm always open to discussing new roles, collaborations, and innovative projects that push the boundaries of AI/ML and full-stack development.
+
+### **Contact Information**
+- 🌐 **Portfolio**: https://jeet-portfolio-61sl.vercel.app/
+- 💼 **LinkedIn**: https://www.linkedin.com/in/jeet-bhatt-403b84267/
+- 📧 **Email**: jeetbhatt1323@gmail.com
+
+### **What I'm Looking For**
+- AI/ML Engineering roles
+- Full-stack development positions
+- Innovation-driven projects
+- Collaborative team environments
+- Opportunities to mentor and lead
+
+---
+
+**Ready to build the future with AI? Let's connect and create something amazing together! 🚀✨**
+
+*"Crafting intelligent solutions with cutting-edge technology"*

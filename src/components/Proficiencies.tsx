@@ -28,30 +28,30 @@ const Proficiencies = () => {
         {
           name: "Next.js",
           description: "Full-stack React framework",
-          level: 90,
+          level: 60,
         },
         {
           name: "Vue.js",
           description: "Progressive JavaScript framework",
-          level: 85,
+          level: 40,
         },
         {
           name: "Angular",
           description: "Enterprise-level framework",
-          level: 78,
+          level: 50,
         },
         {
           name: "Svelte",
           description: "Compile-time optimized framework",
-          level: 80,
+          level: 30,
         },
-        { name: "TypeScript", description: "Type-safe JavaScript", level: 92 },
+        { name: "TypeScript", description: "Type-safe JavaScript", level: 65 },
         {
           name: "Tailwind CSS",
           description: "Utility-first CSS framework",
-          level: 95,
+          level: 85,
         },
-        { name: "Three.js", description: "3D graphics library", level: 88 },
+        { name: "Three.js", description: "3D graphics library", level: 48 },
       ],
     },
     backend: {
@@ -61,7 +61,7 @@ const Proficiencies = () => {
         {
           name: "Node.js",
           description: "JavaScript runtime environment",
-          level: 90,
+          level: 50,
         },
         {
           name: "Python",
@@ -73,22 +73,23 @@ const Proficiencies = () => {
           description: "High-level Python framework",
           level: 85,
         },
-        { name: "FastAPI", description: "Modern API framework", level: 88 },
-        {
-          name: "Express.js",
-          description: "Minimal Node.js framework",
-          level: 90,
-        },
+        { name: "FastAPI", description: "Modern API framework", level: 78 },
+       {
+  "name": "PHP",
+  "description": "Server-side scripting language designed for web development",
+  "level": 70
+},
+
         {
           name: "Flask",
           description: "Lightweight Python framework",
           level: 82,
         },
-        { name: "GraphQL", description: "Query language for APIs", level: 78 },
+        { name: "GraphQL", description: "Query language for APIs", level: 30 },
         {
           name: "REST APIs",
           description: "Architectural style for web services",
-          level: 92,
+          level: 40,
         },
       ],
     },
@@ -99,31 +100,31 @@ const Proficiencies = () => {
         {
           name: "TensorFlow",
           description: "End-to-end ML platform",
-          level: 90,
+          level: 70,
         },
         {
           name: "PyTorch",
           description: "Dynamic neural network framework",
-          level: 88,
+          level: 30,
         },
         {
           name: "Scikit-learn",
           description: "Machine learning library",
-          level: 85,
+          level: 30,
         },
         {
           name: "OpenAI GPT",
           description: "Language model integration",
-          level: 92,
+          level: 62,
         },
-        { name: "Hugging Face", description: "Transformer models", level: 87 },
+        { name: "Hugging Face", description: "Transformer models", level: 40 },
         {
           name: "LangChain",
           description: "LLM application framework",
-          level: 83,
+          level: 40,
         },
         { name: "Computer Vision", description: "OpenCV, YOLO", level: 80 },
-        { name: "NLP", description: "NLTK, spaCy", level: 85 },
+        { name: "NLP", description: "NLTK, spaCy", level: 40 },
       ],
     },
     databases: {
@@ -134,26 +135,26 @@ const Proficiencies = () => {
         {
           name: "PostgreSQL",
           description: "Advanced relational database",
-          level: 90,
+          level: 70,
         },
         {
           name: "MySQL",
           description: "Popular relational database",
-          level: 85,
+          level: 75,
         },
-        { name: "Redis", description: "In-memory data store", level: 82 },
+        { name: "Redis", description: "In-memory data store", level: 32 },
         {
           name: "Firebase",
           description: "Google's mobile platform",
-          level: 87,
+          level: 57,
         },
         {
           name: "Supabase",
           description: "Open-source Firebase alternative",
-          level: 83,
+          level: 40,
         },
-        { name: "Pinecone", description: "Vector database for AI", level: 78 },
-        { name: "Neo4j", description: "Graph database", level: 75 },
+        { name: "Pinecone", description: "Vector database for AI", level: 20 },
+        { name: "Neo4j", description: "Graph database", level: 30 },
       ],
     },
   };
@@ -258,6 +259,18 @@ const Proficiencies = () => {
   credentialId: '4fd9b2212d055cd4f3a9fc40bd0d3eaf71e1bd6e9778312e42b97749e5f9239f',
   fullDescription: 'This course provides insight into how generative AI is reshaping traditional search paradigms by enabling more conversational, context-aware, and purpose-driven interactions. It emphasizes strategies for crafting effective prompts, interpreting AI-generated results, and leveraging advanced AI tools for efficient information discovery.',
   image: 'https://i.postimg.cc/7LNLmXFK/Certi-8.png'
+},
+{
+  "id": "GreatLearning-ApplicationsAI",
+  "title": "Applications of AI",
+  "issuer": "Great Learning",
+  "date": "2025",
+  "level": "Beginner",
+  "description": "Successfully completed an introductory course covering real-world applications of Artificial Intelligence.",
+  "skills": ["Artificial Intelligence", "AI Applications", "Machine Learning Basics", "AI in Industry"],
+  "credentialId": "Verify with the given link in certificate",
+  "fullDescription": "This course introduces the practical use cases and implementations of Artificial Intelligence across various sectors including healthcare, finance, retail, and education. Learners gain insight into how AI technologies are integrated into business operations, and foundational knowledge of how AI systems support data-driven decision-making.",
+  "image": "https://i.ibb.co/M5nHrbFN/Certificate-GL.png"
 },
 {
   id: 'Elements-AI-Helsinki-Google',

@@ -27,6 +27,7 @@ const Projects = () => {
         "Achieved a 97/100 score as a bachelor thesis for its innovation, accuracy, and real-world applicability",
       color: "#00BFFF",
       gradient: "from-blue-500 to-cyan-400",
+      demoUrl: "https://grithub.vercel.app",
     },
     {
       id: 2,
@@ -70,6 +71,7 @@ const Projects = () => {
         "Enabled low-cost, on-site traffic monitoring with efficient vehicle tracking",
       color: "#00BFFF",
       gradient: "from-blue-500 to-cyan-400",
+      demoUrl: "https://github.com/bhattjee/VEHICLE-DETECTION",
     },
     {
       id: 4,
@@ -93,6 +95,7 @@ const Projects = () => {
       impact: "Reduced customer service workload by 60%",
       color: "#00BFFF",
       gradient: "from-blue-500 to-cyan-400",
+      demoUrl: "https://ai-chat-interface-jeet-vercels-projects.vercel.app",
     },
     {
   id: 5,
@@ -118,7 +121,33 @@ const Projects = () => {
   impact: "Enabled non-technical users to extract data from over 500+ sites with zero coding knowledge",
   color: "#00BFFF",
   gradient: "from-blue-500 to-cyan-400",
-  demoUrl: "https://scrapeeeer-fbik0icrg-jeet-vercels-projects.vercel.app",
+  demoUrl: "https://scrapeeeer.vercel.app",
+},
+    {
+id: 6,
+title: "Arthved — Stotra Gallery for Sanatan Dharma",
+description:
+"An ad-free online gallery featuring prominent stotras from Sanatan Dharma, including dedicated sections for Bhagwan Shiv and Hanuman Ji. Each stotra comes with Hindi and English translations, and the platform is completely free with an option to support via Buy Me a Coffee.",
+techStack: [
+"React.js",
+"Next.js",
+"Tailwind CSS",
+"Node.js",
+"Spotify API",
+"Vercel",
+"Git"
+],
+features: [
+"Clean, ad-free stotra browsing experience",
+"Hindi and English translations for each mantra",
+"Direct Spotify redirection for audio/listening",
+"Free access with optional support mechanism",
+"Fully responsive and minimalist UI"
+],
+impact: "Provided an ad-free and clean stotra experience with integrated Spotify redirection, enabling seamless access to authentic content for over 1K+ monthly users",
+color: "#00BFFF",
+gradient: "from-blue-500 to-cyan-400",
+demoUrl: "https://arthved.vercel.app",
 },
   ];
 
