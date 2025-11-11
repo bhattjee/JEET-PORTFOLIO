@@ -1,35 +1,14 @@
-import { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial } from '@react-three/drei';
+import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import * as random from 'maath/random/dist/maath-random.esm';
-import * as THREE from 'three';
 
-const Particles = () => {
-  const ref = useRef<THREE.Points>(null);
-  const sphere = random.inSphere(new Float32Array(2000), { radius: 1.5 });
-
-  useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
-    }
-  });
-
-  return (
-    <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
-        <PointMaterial
-          transparent
-          color="#00BFFF"
-          size={0.005}
-          sizeAttenuation={true}
-          depthWrite={false}
-        />
-      </Points>
-    </group>
-  );
-};
+// Extend Window interface for Vanta
+declare global {
+  interface Window {
+    VANTA: {
+      FOG: (options: any) => any;
+    };
+  }
+}
 
 const Hero = () => {
   const titleVariants = {
@@ -55,14 +34,62 @@ const Hero = () => {
     }
   };
 
+  const vantaRef = useRef<HTMLDivElement>(null);
+  const vantaEffect = useRef<any>(null);
+
+  useEffect(() => {
+    let checkVanta: NodeJS.Timeout | null = null;
+    let timeoutId: NodeJS.Timeout | null = null;
+
+    const initVanta = () => {
+      if (vantaRef.current && window.VANTA) {
+        vantaEffect.current = window.VANTA.FOG({
+          el: vantaRef.current,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          highlightColor: 0x0,
+          midtoneColor: 0x0,
+          lowlightColor: 0x0,
+          baseColor: 0x69ff
+        });
+      }
+    };
+
+    // Check if VANTA is already loaded
+    if (window.VANTA) {
+      initVanta();
+    } else {
+      // Wait for VANTA to load
+      checkVanta = setInterval(() => {
+        if (window.VANTA) {
+          initVanta();
+          if (checkVanta) clearInterval(checkVanta);
+        }
+      }, 100);
+
+      // Cleanup interval after 10 seconds if VANTA doesn't load
+      timeoutId = setTimeout(() => {
+        if (checkVanta) clearInterval(checkVanta);
+      }, 10000);
+    }
+
+    // Cleanup function
+    return () => {
+      if (vantaEffect.current) {
+        vantaEffect.current.destroy();
+      }
+      if (checkVanta) clearInterval(checkVanta);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Particle Background */}
-      <div className="absolute inset-0 w-full h-full">
-        <Canvas camera={{ position: [0, 0, 1] }}>
-          <Particles />
-        </Canvas>
-      </div>
+      {/* Vanta.js Fog Background */}
+      <div ref={vantaRef} className="absolute inset-0 w-full h-full" id="vanta-fog"></div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-8 max-w-6xl mx-auto">
