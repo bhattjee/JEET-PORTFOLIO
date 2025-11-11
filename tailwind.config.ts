@@ -18,6 +18,15 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'arimo': ['Arimo', 'sans-serif'],
+				'montserrat': ['Montserrat', 'sans-serif'],
+				'questrial': ['Questrial', 'sans-serif'],
+				'quicksand': ['Quicksand', 'sans-serif'],
+				'share-tech': ['Share Tech', 'sans-serif'],
+				'smooch-sans': ['Smooch Sans', 'sans-serif'],
+				'sans': ['Montserrat', 'sans-serif'], // Set Montserrat as default sans font
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
