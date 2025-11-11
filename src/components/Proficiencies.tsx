@@ -33,7 +33,7 @@ const Proficiencies = () => {
         {
           name: "Vue.js",
           description: "Progressive JavaScript framework",
-          level: 50,
+          level: 40,
         },
         {
           name: "Angular",
@@ -100,7 +100,7 @@ const Proficiencies = () => {
         {
           name: "TensorFlow",
           description: "End-to-end ML platform",
-          level: 80,
+          level: 70,
         },
         {
           name: "PyTorch",
@@ -117,7 +117,7 @@ const Proficiencies = () => {
           description: "Language model integration",
           level: 62,
         },
-        { name: "Hugging Face", description: "Transformer models", level: 87 },
+        { name: "Hugging Face", description: "Transformer models", level: 40 },
         {
           name: "LangChain",
           description: "LLM application framework",
@@ -142,11 +142,11 @@ const Proficiencies = () => {
           description: "Popular relational database",
           level: 75,
         },
-        { name: "Redis", description: "In-memory data store", level: 52 },
+        { name: "Redis", description: "In-memory data store", level: 32 },
         {
           name: "Firebase",
           description: "Google's mobile platform",
-          level: 77,
+          level: 57,
         },
         {
           name: "Supabase",
@@ -154,7 +154,7 @@ const Proficiencies = () => {
           level: 40,
         },
         { name: "Pinecone", description: "Vector database for AI", level: 20 },
-        { name: "Neo4j", description: "Graph database", level: 40 },
+        { name: "Neo4j", description: "Graph database", level: 30 },
       ],
     },
   };
