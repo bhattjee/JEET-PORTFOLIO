@@ -1,18 +1,47 @@
 import { motion } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { Points, PointMaterial } from "@react-three/drei";
-import * as random from "maath/random/dist/maath-random.esm";
 import * as THREE from "three";
 
 const FloatingParticles = () => {
   const ref = useRef<THREE.Points>(null);
-  const sphere = random.inSphere(new Float32Array(500), { radius: 2 });
+  
+  // Generate sphere data with proper validation - memoized to prevent regeneration
+  const sphere = useMemo(() => {
+    try {
+      const count = 300; // Reduced from 500 for better performance
+      const radius = 2;
+      const positions = new Float32Array(count * 3);
+      
+      for (let i = 0; i < count; i++) {
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        const r = radius * Math.cbrt(Math.random());
+        
+        const x = r * Math.sin(phi) * Math.cos(theta);
+        const y = r * Math.sin(phi) * Math.sin(theta);
+        const z = r * Math.cos(phi);
+        
+        // Validate each value
+        positions[i * 3] = isNaN(x) || !isFinite(x) ? 0 : x;
+        positions[i * 3 + 1] = isNaN(y) || !isFinite(y) ? 0 : y;
+        positions[i * 3 + 2] = isNaN(z) || !isFinite(z) ? 0 : z;
+      }
+      
+      return positions;
+    } catch (error) {
+      // Fallback: return empty array if generation fails
+      console.warn('Failed to generate sphere data:', error);
+      return new Float32Array(300 * 3);
+    }
+  }, []);
 
   useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x -= delta / 20;
-      ref.current.rotation.y -= delta / 30;
+    if (ref.current && !isNaN(delta) && isFinite(delta) && delta > 0 && delta < 1) {
+      // Throttle rotation updates for better performance
+      ref.current.rotation.x -= Math.min(delta / 20, 0.1);
+      ref.current.rotation.y -= Math.min(delta / 30, 0.1);
     }
   });
 
@@ -37,7 +66,11 @@ const Footer = () => {
     <footer className="relative py-16 px-8 bg-black overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-30">
-        <Canvas camera={{ position: [0, 0, 1] }}>
+        <Canvas 
+          camera={{ position: [0, 0, 1] }}
+          gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
+          dpr={[1, 2]}
+        >
           <FloatingParticles />
         </Canvas>
       </div>

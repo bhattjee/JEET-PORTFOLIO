@@ -56,12 +56,12 @@ const Header = () => {
         }}
       >
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-6 lg:space-x-8 flex-nowrap">
           {menuItems.map((item) => (
             <motion.button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+              className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 whitespace-nowrap ${
                 activeSection === item.id
                   ? 'text-[#00BFFF] text-glow'
                   : 'text-white hover:text-[#00BFFF]'

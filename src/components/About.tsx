@@ -15,15 +15,18 @@ const AnimatedSphere = () => {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.1;
+    if (meshRef.current && state.clock && !isNaN(state.clock.elapsedTime) && isFinite(state.clock.elapsedTime)) {
+      const elapsedTime = state.clock.elapsedTime;
+      if (elapsedTime > 0) {
+        meshRef.current.rotation.x = elapsedTime * 0.2;
+        meshRef.current.rotation.y = elapsedTime * 0.1;
+      }
     }
   });
 
   return (
-    <mesh ref={meshRef} scale={2}>
-      <sphereGeometry args={[1, 100, 200]} />
+    <mesh ref={meshRef} scale={[2, 2, 2]}>
+      <sphereGeometry args={[1, 32, 32]} />
       <meshPhongMaterial color="#00BFFF" transparent opacity={0.8} />
     </mesh>
   );
@@ -101,7 +104,12 @@ const About = () => {
           >
             {/* Background 3D Sphere (Optional - can be removed if you want only image) */}
             <div className="absolute inset-0 opacity-20">
-              <Canvas>
+              <Canvas
+                gl={{ antialias: false, alpha: true }}
+                onCreated={({ gl }) => {
+                  gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                }}
+              >
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} />
                 <AnimatedSphere />

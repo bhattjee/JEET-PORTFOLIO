@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 const Connect = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [showResumeMessage, setShowResumeMessage] = useState(false);
 
   const contactInfo = [
     {
@@ -401,23 +402,42 @@ const Connect = () => {
                   Start a Conversation
                 </motion.button>
               </a>
-              <a
-                href="https://drive.google.com/file/d/1W9N6Qf0gp8zGtBAknZ8WlbfOYJzU8Cy0/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                className="px-8 py-3 border-2 border-[#00BFFF] text-[#00BFFF] font-semibold rounded-full hover:bg-[#00BFFF] hover:text-black transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  setShowResumeMessage(true);
+                  setTimeout(() => {
+                    document.getElementById('connect')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 500);
+                  setTimeout(() => setShowResumeMessage(false), 5000);
+                }}
               >
-                <motion.button
-                  className="px-8 py-3 border-2 border-[#00BFFF] text-[#00BFFF] font-semibold rounded-full hover:bg-[#00BFFF] hover:text-black transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Download Resume
-                </motion.button>
-              </a>
+                Request My Resume
+              </motion.button>
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* Resume Request Message */}
+      <AnimatePresence>
+        {showResumeMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 bg-[#00BFFF] text-black px-6 py-4 rounded-lg shadow-2xl max-w-md mx-4"
+          >
+            <p className="text-center font-semibold text-sm sm:text-base">
+              My email is always open for new opportunities! 📧<br />
+              Let's connect!
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

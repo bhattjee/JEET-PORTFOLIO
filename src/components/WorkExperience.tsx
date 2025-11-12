@@ -110,10 +110,25 @@ const WorkExperience = () => {
       title: "Outsystems",
       link: "https://www.outsystems.com/",
     },
+    {
+      id: 4,
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Deutsche_Bahn_AG-Logo.svg/330px-Deutsche_Bahn_AG-Logo.svg.png",
+      title: "Deutsche Bahn",
+      link: "https://int.bahn.de/en",
+    },
+    {
+      id: 5,
+      image: "https://smacsoftwares.com/wp-content/uploads/2024/07/AOK.webp",
+      title: "AOK",
+      link: "https://www.aok.de/fm/en-uk/",
+    },
   ];
 
-  const handleCardClick = () => {
-    setIsSliderOpen(!isSliderOpen);
+  const handleCardClick = (companyName?: string) => {
+    // Only open slider for Samb Info, not redirect
+    if (companyName === "Samb Info LLP") {
+      setIsSliderOpen(!isSliderOpen);
+    }
   };
 
   const handleImageClick = (link: string) => {
@@ -213,7 +228,7 @@ const WorkExperience = () => {
                   scale: 1.05,
                   boxShadow: "0 20px 40px rgba(0, 191, 255, 0.2)",
                 }}
-                onClick={handleCardClick}
+                onClick={() => handleCardClick(company.name)}
               >
                 <div className="flex items-center justify-center mb-3">
                   <img

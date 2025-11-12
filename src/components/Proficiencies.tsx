@@ -1306,10 +1306,6 @@ const Proficiencies = () => {
                 style={{ maxWidth: "90vw", maxHeight: "90vh" }}
               />
 
-              {/* Image info overlay */}
-              <div className="absolute bottom-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg">
-                <p className="text-sm">Click anywhere outside to close</p>
-              </div>
             </motion.div>
           </motion.div>
         )}
