@@ -39,6 +39,9 @@ const Proficiencies = () => {
     if (issuerLower.includes("google")) {
       return "https://i.ibb.co/VpVHbBJq/google-2702602.png";
     }
+    if (issuerLower.includes("github")) {
+      return "https://cdn.simpleicons.org/github/ffffff";
+    }
     if (issuerLower.includes("brainmeasures")) {
       return null; // No logo available
     }
@@ -369,7 +372,7 @@ const Proficiencies = () => {
     {
       id: "Microsoft-LinkedIn-GenAI",
       title: "Career Essentials in Generative AI",
-      issuer: "Microsoft and LinkedIn",
+      issuer: "Microsoft",
       date: "2023",
       level: "Intermediate",
       category: "AI",
@@ -541,23 +544,23 @@ const Proficiencies = () => {
   fullDescription: "This 0.50 PDC professional development course, accredited by the Society for Human Resource Management (SHRM), provides practical strategies for integrating artificial intelligence into daily work routines to boost efficiency and reimagine career trajectories. The course covers AI applications for business productivity, automation techniques, and intelligent workflow optimization, validating competency in leveraging modern AI tools for professional enhancement.",
   image: "https://i.postimg.cc/tCG628yQ/AI-1.png"
 },
-{
-  id: "LinkedIn-Generative-AI-Productivity-Learning-Path",
-  title: "Build Your Generative AI Productivity Skills with Microsoft and LinkedIn",
-  issuer: "LinkedIn Learning",
+    {
+      id: "LinkedIn-Generative-AI-Productivity-Learning-Path",
+      title: "Build Your Generative AI Productivity Skills with Microsoft and LinkedIn",
+      issuer: "Microsoft",
       date: "Oct 2024",
-  level: "Skill Development",
-  category: "AI",
-  description: "Completed a comprehensive 4-hour 54-minute learning path on generative AI applications for business productivity.",
-  skills: [
-    "Artificial Intelligence for Business",
-    "AI Productivity",
-    "Generative AI"
-  ],
-  credentialId: "LL-GAIP-2024-JB",
-  fullDescription: "This intensive learning path, developed in partnership with Microsoft, provides comprehensive training in generative AI technologies and their practical applications for enhancing business productivity. The 4-hour 54-minute curriculum covers cutting-edge AI tools and techniques, enabling professionals to leverage generative AI for workflow optimization, content creation, and intelligent automation in business environments.",
-  image: "https://i.postimg.cc/mgzGkpzG/AI-2-MS.png"
-},
+      level: "Skill Development",
+      category: "AI",
+      description: "Completed a comprehensive 4-hour 54-minute learning path on generative AI applications for business productivity.",
+      skills: [
+        "Artificial Intelligence for Business",
+        "AI Productivity",
+        "Generative AI"
+      ],
+      credentialId: "LL-GAIP-2024-JB",
+      fullDescription: "This intensive learning path, developed in partnership with Microsoft, provides comprehensive training in generative AI technologies and their practical applications for enhancing business productivity. The 4-hour 54-minute curriculum covers cutting-edge AI tools and techniques, enabling professionals to leverage generative AI for workflow optimization, content creation, and intelligent automation in business environments.",
+      image: "https://i.postimg.cc/mgzGkpzG/AI-2-MS.png"
+    },
 {
   id: "LinkedIn-Generative-AI-Business-Leaders",
   title: "Generative AI for Business Leaders",
@@ -608,23 +611,57 @@ const Proficiencies = () => {
   fullDescription: "This 3.20 CPE credit course, registered with NASBA (Registry ID: #140940) in the Field of Study: Information Technology, offers a comprehensive introduction to artificial intelligence fundamentals. Completed via QAS Self-Study, the course covers core AI concepts, technologies, and practical business applications, providing essential knowledge for understanding how AI transforms modern business operations and strategic decision-making.",
   image: "https://i.postimg.cc/3w3518f3/AI-5.png"
 },
-{
-  id: "LinkedIn-What-Is-Generative-AI",
-  title: "What Is Generative AI?",
-  issuer: "LinkedIn Learning",
+    {
+      id: "LinkedIn-What-Is-Generative-AI",
+      title: "What Is Generative AI?",
+      issuer: "LinkedIn Learning",
       date: "Nov 2025",
-  level: "Fundamental",
-  category: "AI",
-  description: "Completed a 2.00 CPE credit course exploring generative AI technologies, tools, and applications.",
-  skills: [
-    "Generative AI Tools",
-    "Artificial Intelligence (AI)",
-    "Generative AI"
-  ],
-  credentialId: "8cee13f0cbbcb4506b27f8399724ed0f21f1ed49a13cec94640cbdd0d96d2d32",
-  fullDescription: "This 2.00 CPE credit course, registered with NASBA (Registry ID: #140940) in the Field of Study: Information Technology, provides a comprehensive introduction to generative artificial intelligence. Completed via QAS Self-Study, the course covers fundamental concepts of generative AI, explores various generative AI tools and platforms, and examines practical applications across different industries, establishing a solid foundation in this transformative technology.",
-  image: "https://i.postimg.cc/jqfTRF73/AI-6.png"
-},
+      level: "Fundamental",
+      category: "AI",
+      description: "Completed a 2.00 CPE credit course exploring generative AI technologies, tools, and applications.",
+      skills: [
+        "Generative AI Tools",
+        "Artificial Intelligence (AI)",
+        "Generative AI"
+      ],
+      credentialId: "8cee13f0cbbcb4506b27f8399724ed0f21f1ed49a13cec94640cbdd0d96d2d32",
+      fullDescription: "This 2.00 CPE credit course, registered with NASBA (Registry ID: #140940) in the Field of Study: Information Technology, provides a comprehensive introduction to generative artificial intelligence. Completed via QAS Self-Study, the course covers fundamental concepts of generative AI, explores various generative AI tools and platforms, and examines practical applications across different industries, establishing a solid foundation in this transformative technology.",
+      image: "https://i.postimg.cc/jqfTRF73/AI-6.png"
+    },
+    {
+      id: "GitHub-Career-Essentials",
+      title: "Career Essentials in GitHub",
+      issuer: "GitHub",
+      date: "Nov 2025",
+      level: "Professional Certificate",
+      category: "AI",
+      description: "Completed a comprehensive 4-hour 18-minute learning path on GitHub essentials and version control practices.",
+      skills: [
+        "GitHub",
+        "Version Control",
+        "Software Development"
+      ],
+      credentialId: "GH-CE-2025-JB",
+      fullDescription: "This professional certificate learning path, completed in 4 hours 18 minutes, provides comprehensive training in GitHub essentials. The curriculum covers version control fundamentals, repository management, collaboration workflows, and best practices for software development using GitHub. This certification validates competency in modern software development practices and collaborative coding workflows.",
+      image: "https://i.ibb.co/6cQ15G4x/github.png"
+    },
+    {
+      id: "Microsoft-Security-Essentials",
+      title: "Microsoft Security Essentials",
+      issuer: "Microsoft",
+      date: "Nov 2025",
+      level: "Professional Certificate",
+      category: "AI",
+      description: "Completed a comprehensive 3-hour 29-minute learning path on Microsoft security fundamentals and cloud security practices.",
+      skills: [
+        "Microsoft Security",
+        "Governance, Risk Management, and Compliance (GRC)",
+        "Cloud Security"
+      ],
+      credentialId: "MS-SE-2025-JB",
+      fullDescription: "This professional certificate learning path, developed by Microsoft and LinkedIn, provides comprehensive training in Microsoft security essentials. Completed in 3 hours 29 minutes, the curriculum covers security governance, risk management, compliance (GRC), and cloud security best practices. This certification validates competency in Microsoft security frameworks and enterprise security implementation strategies.",
+      image: "https://i.ibb.co/DDVcvwjg/MICROSOFT.png"
+    },
 {
   id: 'GRITHUB-Thesis',
   title: 'GRITHUB – AI-Based Workout and Diet Plan Generator',
@@ -907,6 +944,19 @@ const Proficiencies = () => {
                 src="https://i.ibb.co/849FPJ24/image2.png"
                 alt="PowerPoint"
                 className="w-full h-full object-contain bg-transparent"
+              />
+            </motion.div>
+
+            {/* GitHub */}
+            <motion.div
+              whileHover={{ scale: 1.1, y: -5 }}
+              className="flex items-center justify-center w-24 h-24 rounded-lg p-3 hover:bg-white/10 transition-all duration-300"
+            >
+              <img
+                src="https://cdn.simpleicons.org/github/ffffff"
+                alt="GitHub"
+                className="w-full h-full object-contain bg-transparent"
+                style={{ filter: 'brightness(1.3) contrast(1.2)' }}
               />
             </motion.div>
           </motion.div>
