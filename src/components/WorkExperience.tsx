@@ -76,7 +76,7 @@ const WorkExperience = () => {
     {
       year: "2025",
       event:
-        "Initiated Master’s studies in AI/ML with a focus on hardware integration",
+        "Initiated Certification in AI/ML with a focus on hardware integration",
     },
   ];
 
