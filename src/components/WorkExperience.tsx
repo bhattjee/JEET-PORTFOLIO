@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ChevronRight, ChevronLeft, ExternalLink } from "lucide-react";
+import { ChevronRight, ExternalLink } from "lucide-react";
 
 const WorkExperience = () => {
   const [isSliderOpen, setIsSliderOpen] = useState(false);
@@ -103,24 +103,6 @@ const WorkExperience = () => {
       image: "https://i.postimg.cc/Y0XHcWXB/screen2.png",
       title: "Meeting Room App",
       link: "https://smacmeetingroom.com/",
-    },
-    {
-      id: 3,
-      image: "https://i.postimg.cc/154BcFZh/scre4.png",
-      title: "Outsystems",
-      link: "https://www.outsystems.com/",
-    },
-    {
-      id: 4,
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Deutsche_Bahn_AG-Logo.svg/330px-Deutsche_Bahn_AG-Logo.svg.png",
-      title: "Deutsche Bahn",
-      link: "https://int.bahn.de/en",
-    },
-    {
-      id: 5,
-      image: "https://smacsoftwares.com/wp-content/uploads/2024/07/AOK.webp",
-      title: "AOK",
-      link: "https://www.aok.de/fm/en-uk/",
     },
   ];
 
@@ -269,16 +251,10 @@ const WorkExperience = () => {
                 className="mt-8 overflow-hidden bg-gray-900/80 backdrop-blur-sm rounded-xl border border-gray-700"
               >
                 <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="mb-4">
                     <h4 className="text-xl font-bold text-[#00BFFF]">
                       Project Gallery
                     </h4>
-                    <button
-                      onClick={handleCardClick}
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
